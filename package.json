@@ -1,5 +1,5 @@
 {
-    "name": "nti.lib.domjs",
+    "name": "nti.lib.dom",
     "version": "0.0.1",
     "description": "Browser DOM abstraction library",
 
@@ -11,7 +11,7 @@
         "url": "ssh://repos.nextthought.com/nti.lib.domjs"
     },
     "author": "",
-    "license": "ISC",
+    "license": "private",
     "dependencies": {
     },
     "devDependencies": {
