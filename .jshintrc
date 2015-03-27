@@ -1,6 +1,6 @@
 {
     "node": true,
-    "browser": false,
+    "browser": true,
     "esnext": true,
     "strict": false,
     "bitwise": true,
