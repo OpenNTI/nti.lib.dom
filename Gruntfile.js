@@ -7,25 +7,23 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 
 		karma: {
-            unit: {
-                configFile: 'karma.conf.js'
-            }
-        },
+			unit: {
+				configFile: 'karma.conf.js'
+			}
+		},
 
 
-		jshint: {
-	        options: {
-				jshintrc: true,
-	            reporter: require('jshint-log-reporter')
-			},
-	        files: [
-				'**/*.js'
+		eslint: {
+			target: [
+				'lib/**/*.js',
+				'test/**/*.js',
+				'*.js'
 			]
-	    }
+		}
 	});
 
 	//grunt.registerTask('docs',['jsdoc']);
 	grunt.registerTask('test', ['karma']);
-	grunt.registerTask('default', ['jshint']);
+	grunt.registerTask('default', ['eslint']);
 
 };
