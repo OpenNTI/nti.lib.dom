@@ -4,8 +4,7 @@
     "description": "Browser DOM abstraction library",
 
     "scripts": {
-        "test": "grunt test",
-        "prepublish": "grunt test"
+        "test": "grunt test"
     },
     "repository": {
         "type": "git",
