@@ -2,7 +2,7 @@
 	"name": "nti.lib.dom",
 	"version": "0.0.1",
 	"description": "Browser DOM abstraction library",
-
+	"main": "index.js",
 	"scripts": {
 		"test": "grunt test"
 	},
@@ -12,6 +12,7 @@
 	},
 	"author": "",
 	"license": "private",
+
 	"dependencies": {
 	},
 	"devDependencies": {
