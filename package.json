@@ -1,6 +1,6 @@
 {
   "name": "nti.lib.dom",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Browser DOM abstraction library",
   "main": "index.js",
   "scripts": {
