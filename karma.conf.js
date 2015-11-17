@@ -103,7 +103,7 @@ module.exports = function (config) {
 
 			module: {
 				loaders: [
-					{ test: /\.js(x)?$/, loader: 'babel' },
+					{ test: /\.js(x)?$/, loader: 'babel', exclude: /node_modules/  },
 					{ test: /\.json$/, loader: 'json' }
 				]
 			}
