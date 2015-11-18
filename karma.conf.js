@@ -1,6 +1,6 @@
 /*eslint no-var: 0, strict: 0*/
 'use strict';
-var path = require('path');
+
 var webpack = require('webpack');
 
 module.exports = function (config) {
@@ -9,13 +9,11 @@ module.exports = function (config) {
 		frameworks: ['jasmine'],
 
 		files: [
-			'test/**/*',
-			'**/__test__/*.js'
+			'test/**/*'
 		],
 
 		preprocessors: {
-			'test/**/*': ['webpack'],
-			'**/__test__/*.js': ['webpack', 'sourcemap']
+			'test/**/*': ['webpack', 'sourcemap']
 		},
 
 		exclude: [],
@@ -111,9 +109,26 @@ module.exports = function (config) {
 			],
 
 			module: {
+				preLoaders: [
+					{
+						test: /\.js(x)?$/,
+						loader: 'isparta-instrumenter',
+						exclude: [
+							/node_modules/i,
+							/test\/.*/i,
+							/__test__/i
+						]
+					}
+				],
 				loaders: [
-					{ test: /\.js(x)?$/, loader: 'babel', exclude: /node_modules/  },
-					{ test: /\.json$/, loader: 'json' }
+					{ test: /\.json$/, loader: 'json' },
+					{
+						test: /\.js(x)?$/,
+						loader: 'babel',
+						exclude:[
+							/node_modules/
+						]
+					}
 				]
 			}
 		}
