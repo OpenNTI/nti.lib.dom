@@ -54,7 +54,7 @@ module.exports = function (config) {
 		junitReporter: {
 			outputDir: 'reports/test-results/',
 			outputFile: 'index.xml',
-			suite: 'nti.lib.domjs',
+			suite: 'nti-lib-domjs',
 			useBrowserName: false
 		},
 
