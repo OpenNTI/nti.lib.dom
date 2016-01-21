@@ -32,7 +32,5 @@ export default function applyStyles (el, styles) {
 
 	if (typeof styles === 'object') {
 		Object.assign(el.styles, styles);
-	} else {
-		console.warn('Unexpected value for styles', styles);
 	}
 }
