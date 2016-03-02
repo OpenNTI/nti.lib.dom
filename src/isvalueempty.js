@@ -1,4 +1,3 @@
-
 const re = /((&nbsp;)|(\u2060)|(\u200B)|(<br\/?>)|(<\/?div>))*/ig;
 
 export default function isDomAsStringEmpty (value) {

@@ -1,4 +1,3 @@
-
 export default function removeNode (node) {
 	if (node.remove) {
 		return node.remove();
