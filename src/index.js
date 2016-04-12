@@ -12,6 +12,7 @@ import parent from './parent';
 import removeClass from './removeclass';
 import removeNode from './removenode';
 import replaceNode from './replacenode';
+import toCSSClassName from './tocssclassname';
 
 export {
 	addClass,
@@ -27,5 +28,6 @@ export {
 	parent,
 	removeClass,
 	removeNode,
-	replaceNode
+	replaceNode,
+	toCSSClassName
 };
