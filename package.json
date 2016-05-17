@@ -23,7 +23,9 @@
     "type": "git",
     "url": "ssh://repos.nextthought.com/nti.lib.domjs"
   },
-  "dependencies": {},
+  "dependencies": {
+    "scrollparent": "^1.0.0"
+  },
   "devDependencies": {
     "babel-core": "^6.1.0",
     "babel-eslint": "^6.0.0",

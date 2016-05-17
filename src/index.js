@@ -14,7 +14,45 @@ import removeNode from './removenode';
 import replaceNode from './replacenode';
 import toCSSClassName from './tocssclassname';
 
+import getElementRect from './getelementrect';
+import isZeroRect from './iszerorect';
+import safeBoundingBoxForRange from './safeboundingboxforrange';
+
+import addEventListener from './addeventlistener';
+import removeEventListener from './removeeventlistener';
+
+import declareCustomElement from './declarecustomelement';
+import enforceNumber from './enforcenumber';
+import filterNodeList from './filternodelist';
+import getScrollPosition from './getscrollposition';
+import getStyle from './getstyle';
+import isMultiTouch from './ismultitouch';
+import isPointWithin from './ispointwithin';
+import pickUnsanitaryElements from './pickunsanitaryelements';
+import retargetAnchorsWithExternalRefs from './retargetanchorswithexternalrefs';
+import sanitizeExternalContentForInput from './sanitizeexternalcontentforinput';
+import scrollElementBy from './scrollelementby';
+
+import {
+	getDocument,
+	getHeight as getViewportHeight,
+	getWidth as getViewportWidth,
+	getScreenHeight,
+	getScreenWidth
+} from './viewport';
+
+import getScrollParent from 'scrollparent';
+
 export {
+	addEventListener,
+	removeEventListener,
+
+	getDocument,
+	getViewportHeight,
+	getViewportWidth,
+	getScreenHeight,
+	getScreenWidth,
+
 	addClass,
 	applyStyles,
 	createDOM,
@@ -29,5 +67,24 @@ export {
 	removeClass,
 	removeNode,
 	replaceNode,
-	toCSSClassName
+	toCSSClassName,
+
+	declareCustomElement,
+	enforceNumber,
+	filterNodeList,
+	getScrollPosition,
+	getStyle,
+	isMultiTouch,
+	isPointWithin,
+	pickUnsanitaryElements,
+	retargetAnchorsWithExternalRefs,
+	sanitizeExternalContentForInput,
+	scrollElementBy,
+
+	getElementRect,
+	isZeroRect,
+	safeBoundingBoxForRange,
+
+
+	getScrollParent
 };
