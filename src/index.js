@@ -28,7 +28,6 @@ import getScrollPosition from './getscrollposition';
 import getStyle from './getstyle';
 import isMultiTouch from './ismultitouch';
 import isPointWithin from './ispointwithin';
-import pickUnsanitaryElements from './pickunsanitaryelements';
 import retargetAnchorsWithExternalRefs from './retargetanchorswithexternalrefs';
 import sanitizeExternalContentForInput from './sanitizeexternalcontentforinput';
 import scrollElementBy from './scrollelementby';
@@ -76,7 +75,6 @@ export {
 	getStyle,
 	isMultiTouch,
 	isPointWithin,
-	pickUnsanitaryElements,
 	retargetAnchorsWithExternalRefs,
 	sanitizeExternalContentForInput,
 	scrollElementBy,
