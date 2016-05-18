@@ -9,7 +9,7 @@ import isZeroRect from './iszerorect';
  * @param {Range} range range
  * @returns {Rect} Bounding Rect
  */
-export function safeBoundingBoxForRange (range) {
+export default function safeBoundingBoxForRange (range) {
 	let {collapsed, commonAncestorContainer, startContainer, startOffset, endContainer, endOffset} = range || {};
 	let rect = range ? range.getBoundingClientRect(range) : null;
 
