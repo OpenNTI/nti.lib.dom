@@ -42,6 +42,12 @@ import {
 
 import getScrollParent from 'scrollparent';
 
+export const URL = global.URL && global.URL.createObjectURL ?
+				global.URL :
+				global.webkitURL && global.webkitURL.createObjectURL ?
+					global.webkitURL :
+					null;
+
 export {
 	addEventListener,
 	removeEventListener,
