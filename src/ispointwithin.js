@@ -1,7 +1,7 @@
 import inRange from './inrange';
 import getElementRect from './getelementrect';
 
-export default function isPointWithIn (el, x, y) {
+export default function isPointWithin (el, x, y) {
 	let rect = getElementRect(el);
 
 	return (
