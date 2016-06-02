@@ -1,6 +1,6 @@
 {
   "name": "nti-lib-dom",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "author": "nextthought",
   "license": "UNLICENSED",
   "description": "Browser DOM abstraction library",
