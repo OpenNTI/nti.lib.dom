@@ -40,7 +40,7 @@ import {
 	getScreenWidth
 } from './viewport';
 
-import getScrollParent from 'scrollparent';
+import getScrollParent from './getscrollparent';
 
 export const URL = global.URL && global.URL.createObjectURL ?
 				global.URL :
