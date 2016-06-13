@@ -1,4 +1,4 @@
-import scrollParent from 'scrollparent';
+import scrollParent from './getscrollparent';
 import getStyle from './getstyle';
 
 export default function getScrollPosition (el) {
