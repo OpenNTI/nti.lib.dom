@@ -32,6 +32,8 @@ import retargetAnchorsWithExternalRefs from './retargetanchorswithexternalrefs';
 import sanitizeExternalContentForInput from './sanitizeexternalcontentforinput';
 import scrollElementBy from './scrollelementby';
 
+import getFragmentFromString from './get-fragment-from-string';
+
 import {
 	getDocument,
 	getHeight as getViewportHeight,
@@ -73,6 +75,7 @@ export {
 	removeNode,
 	replaceNode,
 	toCSSClassName,
+	getFragmentFromString,
 
 	declareCustomElement,
 	enforceNumber,
