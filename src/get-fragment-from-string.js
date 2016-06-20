@@ -23,8 +23,9 @@ export default function getFragmentFromString (str) {
 
 	const frag = document.createDocumentFragment();
 	const tmp = getElementWithContent('div', str);
+
 	//tmp.firstElementChild isn't supported before IE9...and that skips text nodes...we probably want those...
-	for (let child; child = tmp.firstChild;) {
+	for (let child = tmp.firstChild; child; child = tmp.firstChild) {
 		// appendChild removes child from its current tree into the new tree...
 		// so the next read from tmp.firstChild will be different.
 		frag.appendChild(child);
