@@ -18,7 +18,13 @@ export default function getFragmentFromString (str) {
 	const range = document.createRange && document.createRange();
 	if (range && range.createContextualFragment) {
 		//return early for the fast and convenient path...
-		return range.createContextualFragment(str);
+		try {
+			return range.createContextualFragment(str);
+		} catch (e) {
+			if(!/NotSupportedError/i.test(e.message)) {
+				throw e;
+			}
+		}
 	}
 
 	const frag = document.createDocumentFragment();
