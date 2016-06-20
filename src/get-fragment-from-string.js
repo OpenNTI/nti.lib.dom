@@ -1,3 +1,5 @@
+const getElementWithContent = (tag, x) => (tag = document.createElement(tag), tag.innerHTML = x, tag);
+
 /**
  * Given a string return a fragment.
  *
@@ -13,5 +15,20 @@ export default function getFragmentFromString (str) {
 		throw new Error('Document is not defined');
 	}
 
-	return document.createRange().createContextualFragment(str);
+	const range = document.createRange && document.createRange();
+	if (range && range.createContextualFragment) {
+		//return early for the fast and convenient path...
+		return range.createContextualFragment(str);
+	}
+
+	const frag = document.createDocumentFragment();
+	const tmp = getElementWithContent('div', str);
+	//tmp.firstElementChild isn't supported before IE9...and that skips text nodes...we probably want those...
+	for (let child; child = tmp.firstChild;) {
+		// appendChild removes child from its current tree into the new tree...
+		// so the next read from tmp.firstChild will be different.
+		frag.appendChild(child);
+	}
+
+	return frag;
 }
