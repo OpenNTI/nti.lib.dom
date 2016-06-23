@@ -33,6 +33,7 @@ export sanitizeExternalContentForInput from './sanitizeexternalcontentforinput';
 export scrollElementBy from './scrollelementby';
 
 export getFragmentFromString from './get-fragment-from-string';
+export getEffectiveZIndex from './get-effective-z-index';
 
 export {
 	getDocument,
