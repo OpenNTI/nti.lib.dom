@@ -1,40 +1,40 @@
-import addClass from './addclass';
-import applyStyles from './applystyles';
-import createDOM from './createdom';
-import getEventTarget from './geteventtarget';
-import getTextNodes from './gettextnodes';
-import hasClass from './hasclass';
-import isElement from './iselement';
-import isTextNode from './istextnode';
-import isValueEmpty from './isvalueempty';
-import matches from './matches';
-import parent from './parent';
-import removeClass from './removeclass';
-import removeNode from './removenode';
-import replaceNode from './replacenode';
-import toCSSClassName from './tocssclassname';
+export addClass from './addclass';
+export applyStyles from './applystyles';
+export createDOM from './createdom';
+export getEventTarget from './geteventtarget';
+export getTextNodes from './gettextnodes';
+export hasClass from './hasclass';
+export isElement from './iselement';
+export isTextNode from './istextnode';
+export isValueEmpty from './isvalueempty';
+export matches from './matches';
+export parent from './parent';
+export removeClass from './removeclass';
+export removeNode from './removenode';
+export replaceNode from './replacenode';
+export toCSSClassName from './tocssclassname';
 
-import getElementRect from './getelementrect';
-import isZeroRect from './iszerorect';
-import safeBoundingBoxForRange from './safeboundingboxforrange';
+export getElementRect from './getelementrect';
+export isZeroRect from './iszerorect';
+export safeBoundingBoxForRange from './safeboundingboxforrange';
 
-import addEventListener from './addeventlistener';
-import removeEventListener from './removeeventlistener';
+export addEventListener from './addeventlistener';
+export removeEventListener from './removeeventlistener';
 
-import declareCustomElement from './declarecustomelement';
-import enforceNumber from './enforcenumber';
-import filterNodeList from './filternodelist';
-import getScrollPosition from './getscrollposition';
-import getStyle from './getstyle';
-import isMultiTouch from './ismultitouch';
-import isPointWithin from './ispointwithin';
-import retargetAnchorsWithExternalRefs from './retargetanchorswithexternalrefs';
-import sanitizeExternalContentForInput from './sanitizeexternalcontentforinput';
-import scrollElementBy from './scrollelementby';
+export declareCustomElement from './declarecustomelement';
+export enforceNumber from './enforcenumber';
+export filterNodeList from './filternodelist';
+export getScrollPosition from './getscrollposition';
+export getStyle from './getstyle';
+export isMultiTouch from './ismultitouch';
+export isPointWithin from './ispointwithin';
+export retargetAnchorsWithExternalRefs from './retargetanchorswithexternalrefs';
+export sanitizeExternalContentForInput from './sanitizeexternalcontentforinput';
+export scrollElementBy from './scrollelementby';
 
-import getFragmentFromString from './get-fragment-from-string';
+export getFragmentFromString from './get-fragment-from-string';
 
-import {
+export {
 	getDocument,
 	getHeight as getViewportHeight,
 	getWidth as getViewportWidth,
@@ -42,56 +42,10 @@ import {
 	getScreenWidth
 } from './viewport';
 
-import getScrollParent from './getscrollparent';
+export getScrollParent from './getscrollparent';
 
 export const URL = global.URL && global.URL.createObjectURL ?
 				global.URL :
 				global.webkitURL && global.webkitURL.createObjectURL ?
 					global.webkitURL :
 					null;
-
-export {
-	addEventListener,
-	removeEventListener,
-
-	getDocument,
-	getViewportHeight,
-	getViewportWidth,
-	getScreenHeight,
-	getScreenWidth,
-
-	addClass,
-	applyStyles,
-	createDOM,
-	getEventTarget,
-	getTextNodes,
-	hasClass,
-	isElement,
-	isTextNode,
-	isValueEmpty,
-	matches,
-	parent,
-	removeClass,
-	removeNode,
-	replaceNode,
-	toCSSClassName,
-	getFragmentFromString,
-
-	declareCustomElement,
-	enforceNumber,
-	filterNodeList,
-	getScrollPosition,
-	getStyle,
-	isMultiTouch,
-	isPointWithin,
-	retargetAnchorsWithExternalRefs,
-	sanitizeExternalContentForInput,
-	scrollElementBy,
-
-	getElementRect,
-	isZeroRect,
-	safeBoundingBoxForRange,
-
-
-	getScrollParent
-};
