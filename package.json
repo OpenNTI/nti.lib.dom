@@ -24,6 +24,7 @@
     "url": "ssh://repos.nextthought.com/nti.lib.domjs"
   },
   "dependencies": {
+    "nti-util-detection-touch": "^1.0.0",
     "scrollparent": "^1.0.0"
   },
   "devDependencies": {

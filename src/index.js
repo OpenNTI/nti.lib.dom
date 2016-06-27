@@ -1,4 +1,5 @@
 export addClass from './addclass';
+export addFeatureCheckClasses from './add-feature-check-classes';
 export applyStyles from './applystyles';
 export createDOM from './createdom';
 export getEventTarget from './geteventtarget';
