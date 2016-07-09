@@ -4,11 +4,11 @@ function getDocument () {
 }
 
 export function getHeight () {
-	return global.innerHeight || getDocument().clientHeight;
+	return getDocument().clientHeight || global.innerHeight;
 }
 
 export function getWidth () {
-	return global.innerWidth || getDocument().clientWidth;
+	return getDocument().clientWidth || global.innerWidth;
 }
 
 export function getScreenWidth () {
