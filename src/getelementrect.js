@@ -6,7 +6,11 @@ import {
 export default function getElementRect (el) {
 	let rect, w, h;
 	if (el && el.getBoundingClientRect) {
-		rect = el.getBoundingClientRect();
+		//getBoundingClientRect returns a ClientRect which is not a "normal" JSO.
+		//So Object operations or mutations do not work on it. Pull the values
+		//out and returna JSO.
+		const {top, left, bottom, right, width, height} = el.getBoundingClientRect();
+		rect = {top, left, bottom, right, width, height};
 	}
 
 	if (!rect && el) {
