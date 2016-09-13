@@ -12,7 +12,7 @@ export default function getScrollPosition (el) {
 	}
 
 	return {
-		top: el.scrollTop,
-		left: el.scrollLeft
+		top: el.scrollTop || el.scrollY,
+		left: el.scrollLeft || el.scrollX
 	};
 }
