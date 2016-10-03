@@ -1,4 +1,4 @@
-function getDocument () {
+export function getDocument () {
 	return typeof document === 'undefined' ? {} :
 		document.documentElement || {};
 }

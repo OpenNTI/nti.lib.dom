@@ -4,6 +4,8 @@ import VisibilityMonitor from './VisibilityMonitor';
 const logger = Logger.get('dom:appcache');
 const cache = global.applicationCache;
 
+export default cache;
+
 const cacheStatusValues = [
 	'uncached',		//0
 	'idle',			//1
