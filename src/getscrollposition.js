@@ -1,6 +1,10 @@
 import scrollParent from './getscrollparent';
 import getStyle from './getstyle';
 
+const getDocEl = (win) => win.document && win.document.documentElement || document.body;
+const getWindowScrollTop = (win) => getDocEl(win).scrollTop;
+const getWindowScrollLeft = (win) => getDocEl(win).scrollLeft;
+
 export default function getScrollPosition (el) {
 	const overflow = /auto|scroll/i;
 	const isScroller = e =>
@@ -12,7 +16,7 @@ export default function getScrollPosition (el) {
 	}
 
 	return {
-		top: el.scrollTop || el.scrollY,
-		left: el.scrollLeft || el.scrollX
+		top: el.scrollTop || el.scrollY || getWindowScrollTop(el),
+		left: el.scrollLeft || el.scrollX || getWindowScrollLeft(el),
 	};
 }
