@@ -2,7 +2,7 @@ import hasClass from './hasclass';
 
 const SPACE = /\s+/;
 
-export default function addClass (el, className) {
+export default function addClass (el, className = []) {
 	if (!Array.isArray(className)) {
 		className = className.split(SPACE);
 	}
