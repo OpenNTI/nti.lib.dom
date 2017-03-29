@@ -2,6 +2,7 @@ export addClass from './addclass';
 export addFeatureCheckClasses from './add-feature-check-classes';
 export applyStyles from './applystyles';
 export createDOM from './createdom';
+export focusElement from './focus-element';
 export getEventTarget from './geteventtarget';
 export getTextNodes from './gettextnodes';
 export hasClass from './hasclass';
