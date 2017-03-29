@@ -1,6 +1,6 @@
 {
   "name": "nti-lib-dom",
-  "version": "1.6.3",
+  "version": "1.6.4",
   "author": "nextthought",
   "license": "UNLICENSED",
   "description": "Browser DOM abstraction library",
@@ -52,8 +52,14 @@
       "!**/*.spec.js"
     ],
     "coverageDirectory": "reports/coverage",
-    "coverageReporters": ["text", "lcov", "cobertura"],
-    "roots": ["<rootDir>/src/"],
+    "coverageReporters": [
+      "text",
+      "lcov",
+      "cobertura"
+    ],
+    "roots": [
+      "<rootDir>/src/"
+    ],
     "testResultsProcessor": "./node_modules/jest-junit"
   },
   "jest-junit": {
