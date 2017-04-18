@@ -33,6 +33,7 @@ export isPointWithin from './ispointwithin';
 export retargetAnchorsWithExternalRefs from './retargetanchorswithexternalrefs';
 export sanitizeExternalContentForInput from './sanitizeexternalcontentforinput';
 export scrollElementBy from './scrollelementby';
+export scrollElementTo from './scrollelementto';
 
 export getFragmentFromString from './get-fragment-from-string';
 export getEffectiveZIndex from './get-effective-z-index';
