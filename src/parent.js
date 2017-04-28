@@ -1,6 +1,5 @@
 /*global Node*/
 import isTextNode from './istextnode';
-
 import matches from './matches';
 
 //some browsers do not define these constants.

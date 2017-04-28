@@ -1,4 +1,5 @@
 import Logger from 'nti-util-logger';
+
 import VisibilityMonitor from './VisibilityMonitor';
 
 const logger = Logger.get('dom:appcache');
