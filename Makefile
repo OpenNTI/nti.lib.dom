@@ -2,14 +2,14 @@
 
 LIBDIR = lib
 
-all: node_modules lib
+all: node_modules test lib
 
 node_modules: package.json
 	@rm -rf node_modules
 	@npm install
 	@touch $@
 
-check:
+check: node_modules
 	@eslint --ext .js,.jsx ./src
 
 test: node_modules check
@@ -19,4 +19,5 @@ clean:
 	@rm -rf $(LIBDIR)
 
 lib: clean
-	@NODE_ENV=rollup rollup -c
+	@rollup -c
+	@rollup -c -f cjs -o lib/cjs-index.js

@@ -4,7 +4,8 @@
   "author": "nextthought",
   "license": "UNLICENSED",
   "description": "Browser DOM abstraction library",
-  "main": "lib/index.js",
+  "main": "lib/cjs-index.js",
+  "module": "lib/index.js",
   "files": [
     "lib"
   ],
