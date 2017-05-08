@@ -9,4 +9,11 @@ describe('toCSSClassName', () => {
 		expect(toCSSClassName(':.,-Foo  bar Baz ^$&%&^%&^%')).toBe('foo-bar-baz');
 	});
 
+	it('should return null if not passed a string', () => {
+		expect(toCSSClassName()).toBeNull();
+		expect(toCSSClassName(null)).toBeNull();
+		expect(toCSSClassName(1234)).toBeNull();
+		expect(toCSSClassName({test: '1234'})).toBeNull();
+	});
+
 });
