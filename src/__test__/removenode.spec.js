@@ -1,3 +1,4 @@
+/* eslint-env jest */
 import removeNode from '../removenode';
 
 const make = (n, p, c) => {
@@ -7,9 +8,9 @@ const make = (n, p, c) => {
 	return e;
 };
 
-describe('removeNode', () => {
+describe ('removeNode', () => {
 
-	it('remove a node from the dom', () => {
+	test ('remove a node from the dom', () => {
 
 		let el = make('a', make('li', make('ul', make('div', make('body')))));
 		let li = el.parentNode;

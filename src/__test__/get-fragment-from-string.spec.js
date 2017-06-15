@@ -1,7 +1,8 @@
+/* eslint-env jest */
 import getFragmentFromString from '../get-fragment-from-string';
 
 describe('getFragmentFromString', () => {
-	it ('return value has querySelector', () => {
+	test ('return value has querySelector', () => {
 		const frag = getFragmentFromString('<a name="id"/> This is a fragment <strong>string</strong>.');
 
 		expect(frag.querySelector).toBeTruthy();

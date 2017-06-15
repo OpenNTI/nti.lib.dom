@@ -1,8 +1,9 @@
+/* eslint-env jest */
 import addClass from '../addclass';
 
 describe('addClass', () => {
 
-	it('should add a class to an element', () => {
+	test ('should add a class to an element', () => {
 
 		let el = document.createElement('div');
 
@@ -14,7 +15,7 @@ describe('addClass', () => {
 	});
 
 
-	it('should not duplicate classes', () => {
+	test ('should not duplicate classes', () => {
 
 		let el = document.createElement('div');
 
@@ -27,7 +28,7 @@ describe('addClass', () => {
 	});
 
 
-	it('should not corrupt classes', () => {
+	test ('should not corrupt classes', () => {
 		let test = 'new-class';
 		let classes = ['a', 'b', 'c', 'd'];
 

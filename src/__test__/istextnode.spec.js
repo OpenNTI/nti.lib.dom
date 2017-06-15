@@ -1,8 +1,9 @@
+/* eslint-env jest */
 import isTextNode from '../istextnode';
 
-describe('isTextNode', () => {
+describe ('isTextNode', () => {
 
-	it('should identify a text node', () => {
+	test ('should identify a text node', () => {
 
 		let el = document.createElement('div');
 		let text = document.createTextNode('text');

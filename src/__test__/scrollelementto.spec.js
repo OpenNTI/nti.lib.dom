@@ -1,13 +1,15 @@
+/* global spyOn */
+/* eslint-env jest */
 import scrollElementTo from '../scrollelementto';
 
-describe('scrollelementto', () => {
-	it ('should call scrollTo on window', () => {
+describe ('scrollelementto', () => {
+	test ('should call scrollTo on window', () => {
 		spyOn(window, 'scrollTo');
 		scrollElementTo(window, 100, 100);
 		expect(window.scrollTo).toHaveBeenCalled();
 	});
 
-	it ('should set scrollTop and scrollLeft on DOM elements', () => {
+	test ('should set scrollTop and scrollLeft on DOM elements', () => {
 		const top = 100;
 		const left = 200;
 		const parent = document.createElement('div');

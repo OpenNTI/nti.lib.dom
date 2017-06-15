@@ -1,3 +1,4 @@
+/* eslint-env jest */
 import replaceNode from '../replacenode';
 
 const make = (n, p, c) => {
@@ -7,9 +8,9 @@ const make = (n, p, c) => {
 	return e;
 };
 
-describe('replaceNode', () => {
+describe ('replaceNode', () => {
 
-	it('replace a node in the dom', () => {
+	test ('replace a node in the dom', () => {
 		let replacement = make('span');
 		let li = make('li');
 		let el1 = make('a', li);

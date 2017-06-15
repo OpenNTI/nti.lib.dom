@@ -1,3 +1,4 @@
+/* eslint-env jest */
 import parent from '../parent';
 
 const make = (n, p, c) => {
@@ -7,9 +8,9 @@ const make = (n, p, c) => {
 	return e;
 };
 
-describe('parent', () => {
+describe ('parent', () => {
 
-	it('should return the imediate parent node if no selector given', () => {
+	test ('should return the imediate parent node if no selector given', () => {
 
 		let m = make('a', make('li'));
 
@@ -17,7 +18,7 @@ describe('parent', () => {
 	});
 
 
-	it('should return the first parent that matches the selector', () => {
+	test ('should return the first parent that matches the selector', () => {
 
 		let target = make('div', make('body', null, 'foo'), 'foo');
 		let m = make('a', make('li', make('ul', target)));

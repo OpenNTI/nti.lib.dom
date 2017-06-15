@@ -1,3 +1,4 @@
+/* eslint-env jest */
 import matches from '../matches';
 
 const make = (n, c) => {
@@ -6,9 +7,9 @@ const make = (n, c) => {
 	return e;
 };
 
-describe('matches', () => {
+describe ('matches', () => {
 
-	it('should normalize the vender-prefixes', () => {
+	test ('should normalize the vender-prefixes', () => {
 
 		let div = make('div');
 		let divWithClassFoo = make('div', 'foo');

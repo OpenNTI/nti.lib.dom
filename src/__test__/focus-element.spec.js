@@ -1,7 +1,8 @@
+/* eslint-env jest */
 import focusElement from '../focus-element';
 
 describe('focus-element', () => {
-	it('doesn\'t blow up with null', () => {
+	test ('doesn\'t blow up with null', () => {
 		const call = () => {
 			focusElement(null);
 		};
@@ -9,7 +10,7 @@ describe('focus-element', () => {
 		expect(call).not.toThrow();
 	});
 
-	it('does\'t with no focus method', () => {
+	test ('does\'t with no focus method', () => {
 		const call = () => {
 			focusElement({});
 		};
@@ -17,7 +18,7 @@ describe('focus-element', () => {
 		expect(call).not.toThrow();
 	});
 
-	it('Calls focus method', () => {
+	test ('Calls focus method', () => {
 		const el = {focus: () => {}};
 		const spy = jest.spyOn(el, 'focus');
 		const call = () => {

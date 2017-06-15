@@ -1,3 +1,4 @@
+/* eslint-env jest */
 import getEventTarget from '../geteventtarget';
 
 const make = (n, p, c) => {
@@ -9,7 +10,7 @@ const make = (n, p, c) => {
 
 describe('getEventTarget', () => {
 
-	it('should retrieve target node', () => {
+	test ('should retrieve target node', () => {
 		let target = make('a');
 		let e = {target};
 
@@ -18,7 +19,7 @@ describe('getEventTarget', () => {
 		expect(d).toBe(target);
 	});
 
-	it('should retrieve target node that matches selector', () => {
+	test ('should retrieve target node that matches selector', () => {
 		let div = make('div', make('body'), 'foo');
 		let target = make('a', make('span', div));
 
@@ -29,7 +30,7 @@ describe('getEventTarget', () => {
 		expect(d).toBe(div);
 	});
 
-	it('should return null for selector that does not match', () => {
+	test ('should return null for selector that does not match', () => {
 		let div = make('div', make('body'), 'foo');
 		let target = make('a', make('span', div));
 

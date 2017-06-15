@@ -1,8 +1,9 @@
+/* eslint-env jest */
 import hasClass from '../hasclass';
 
 describe('hasClass', () => {
 
-	it('should identify existing classes', () => {
+	test ('should identify existing classes', () => {
 
 		let el = document.createElement('div');
 
@@ -13,7 +14,7 @@ describe('hasClass', () => {
 	});
 
 
-	it('should not corrupt classes', () => {
+	test ('should not corrupt classes', () => {
 		let test = 'a';
 		let classes = ['a', 'b', 'c', 'd'];
 

@@ -1,8 +1,9 @@
+/* eslint-env jest */
 import removeClass from '../removeclass';
 
-describe('removeClass', () => {
+describe ('removeClass', () => {
 
-	it('should remove a class from an element', () => {
+	test ('should remove a class from an element', () => {
 
 		let el = document.createElement('div');
 
@@ -14,7 +15,7 @@ describe('removeClass', () => {
 	});
 
 
-	it('should not throw an error removing a non-existing class', () => {
+	test ('should not throw an error removing a non-existing class', () => {
 
 		let el = document.createElement('div');
 
@@ -28,7 +29,7 @@ describe('removeClass', () => {
 	});
 
 
-	it('should not corrupt classes', () => {
+	test ('should not corrupt classes', () => {
 		let test = 'a';
 		let classes = ['a', 'b', 'c', 'd'];
 

@@ -1,9 +1,10 @@
+/* eslint-env jest */
 import isTextNode from '../istextnode';
 import getTextNodes from '../gettextnodes';
 
-describe('getTextNodes', () => {
+describe ('getTextNodes', () => {
 
-	it('should retrieve the text nodes from a dom structure', () => {
+	test ('should retrieve the text nodes from a dom structure', () => {
 
 		let el = document.createElement('div');
 		el.innerHTML = 'A<span>B</span><a><span>C</span></a>D <b>E</b> F<br/>G';
@@ -17,7 +18,7 @@ describe('getTextNodes', () => {
 			return n.nodeValue;
 		});
 
-		expect(actual).toEqual(jasmine.arrayContaining(expected));
+		expect(actual).toEqual(expect.arrayContaining(expected));
 		expect(actual.length).toBe(expected.length);
 	});
 });
