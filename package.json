@@ -29,6 +29,6 @@
     "scrollparent": "^1.0.0"
   },
   "devDependencies": {
-    "nti-lib-scripts": "^1.0.7"
+    "nti-lib-scripts": "^1.0.10"
   }
 }
