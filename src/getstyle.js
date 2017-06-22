@@ -11,8 +11,8 @@ export default function getStyle (el, ...properties) {
 
 	const styles = getStyles(el);
 	const values = styles
-					? properties.map(property => styles[property])
-					: [];
+		? properties.map(property => styles[property])
+		: [];
 
 	return length === 1
 		? values[0]

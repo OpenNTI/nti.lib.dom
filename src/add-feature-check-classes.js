@@ -40,10 +40,10 @@ function identifyBrowser () {
 
 	return isOpera ? 'is-opera'
 		: isFirefox ? 'is-firefox'
-		: isSafari ? 'is-safari'
-		: isIE ? 'is-ie'
-		: isEdge ? 'is-edge'
-		: isChrome ? 'is-chrome'
-		: isBlink ? 'is-blink'
-		: '';
+			: isSafari ? 'is-safari'
+				: isIE ? 'is-ie'
+					: isEdge ? 'is-edge'
+						: isChrome ? 'is-chrome'
+							: isBlink ? 'is-blink'
+								: '';
 }

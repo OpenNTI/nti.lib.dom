@@ -5,7 +5,7 @@ function hyphenatedToCamel (s) {
 
 
 function parse (styles) {
-	let re = parse.re = (parse.re || /([a-z0-9\-]+)\s*:\s*([^;\s]+(?:\s*[^;\s]+)*)?;?/gi);
+	let re = parse.re = (parse.re || /([a-z0-9-]+)\s*:\s*([^;\s]+(?:\s*[^;\s]+)*)?;?/gi);
 	let out = {}, matches;
 
 	if (styles) {

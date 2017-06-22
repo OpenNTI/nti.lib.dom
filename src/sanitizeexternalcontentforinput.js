@@ -59,7 +59,7 @@ function pickUnsanitaryElements (root, cleanAttributes) {
 		el = tw.nextNode();
 		if (!el) { continue; }
 
-			//Remove comments
+		//Remove comments
 		if ((el.nodeType === Node.COMMENT_NODE) ||
 			//remove nodes we deem bad
 			(BAD_NODES[el.tagName]) ||

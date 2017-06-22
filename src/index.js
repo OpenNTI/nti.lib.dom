@@ -49,10 +49,10 @@ export {
 export getScrollParent from './getscrollparent';
 
 export const URL = global.URL && global.URL.createObjectURL ?
-				global.URL :
-				global.webkitURL && global.webkitURL.createObjectURL ?
-					global.webkitURL :
-					null;
+	global.URL :
+	global.webkitURL && global.webkitURL.createObjectURL ?
+		global.webkitURL :
+		null;
 
 export ApplicationCache from './ApplicationCache';
 export Orientation from './Orientation';
