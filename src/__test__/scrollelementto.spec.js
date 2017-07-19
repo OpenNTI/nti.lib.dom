@@ -27,14 +27,14 @@ describe ('scrollelementto', () => {
 		expect(parent.scrollLeft).toEqual(left);
 	});
 
-	it ('should not call window.scrollTo when passed a DOM element', () => {
+	test ('should not call window.scrollTo when passed a DOM element', () => {
 		spyOn(window, 'scrollTo');
 		const div = document.createElement('div');
 		scrollElementTo(div, 100, 100);
 		expect(window.scrollTo).not.toHaveBeenCalled();
 	});
 
-	it ('should not throw when no element is provided', () => {
+	test ('should not throw when no element is provided', () => {
 		expect(() => scrollElementTo()).not.toThrow();
 		expect(() => scrollElementTo(null)).not.toThrow();
 	});
