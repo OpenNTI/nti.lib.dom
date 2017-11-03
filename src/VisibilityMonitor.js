@@ -54,14 +54,14 @@ export class VisibilityMonitor extends EventEmitter {
 
 
 	addChangeListener (callback) {
-		this.addEventListener(CHANGE_EVENT, callback);
-		const unsubscribe = () => this.removeEventListener(CHANGE_EVENT, callback);
+		this.addListener(CHANGE_EVENT, callback);
+		const unsubscribe = () => this.removeListener(CHANGE_EVENT, callback);
 		return unsubscribe;
 	}
 
 
 	removeChangeListener (callback) {
-		this.removeEventListener(callback);
+		this.removeListener(callback);
 	}
 }
 
