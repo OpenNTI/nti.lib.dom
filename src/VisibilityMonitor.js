@@ -22,7 +22,9 @@ const eventName = prefix + 'visibilitychange';
 const propertyName = prefix === '' ? 'hidden' : (prefix + 'Hidden');
 
 
-class VisibilityMonitor extends EventEmitter {
+export class VisibilityMonitor extends EventEmitter {
+
+	views = 0
 
 	constructor () {
 		super();
