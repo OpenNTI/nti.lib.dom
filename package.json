@@ -25,6 +25,7 @@
     "url": "https://github.com/NextThought/nti.lib.domjs.git"
   },
   "dependencies": {
+    "nti-commons": "^2.10.0",
     "nti-util-detection-touch": "^1.0.0",
     "nti-util-logger": "^1.0.0",
     "scrollparent": "^1.0.0"
