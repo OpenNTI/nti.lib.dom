@@ -5,7 +5,7 @@ import {Tasks, defineProtected, updateValue} from 'nti-commons';
 const INACTIVE_TIMEOUT = 900000;//15 minutes
 const CHANGE_EVENT = 'change';
 
-export class InactiveMonitor extends EventEmitter {
+export default class InactivityMonitor extends EventEmitter {
 	constructor (element) {
 		super();
 

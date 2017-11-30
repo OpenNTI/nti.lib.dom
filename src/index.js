@@ -55,6 +55,7 @@ export const URL = global.URL && global.URL.createObjectURL ?
 		null;
 
 export ApplicationCache from './ApplicationCache';
+export InactivityMonitor from './InactivityMonitor';
 export Orientation from './Orientation';
 export VisibilityMonitor from './VisibilityMonitor';
 export WindowMessageListener from './WindowMessageListener';
