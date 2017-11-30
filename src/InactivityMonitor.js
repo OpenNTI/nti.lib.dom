@@ -2,8 +2,12 @@ import EventEmitter from 'events';
 
 import {Tasks, defineProtected, updateValue} from 'nti-commons';
 
+import VisibilityMonitor from './VisibilityMonitor';
+
 const INACTIVE_TIMEOUT = 900000;//15 minutes
 const CHANGE_EVENT = 'change';
+
+const call = x => typeof x === 'function' && x();
 
 export default class InactivityMonitor extends EventEmitter {
 	constructor (element) {
@@ -25,6 +29,30 @@ export default class InactivityMonitor extends EventEmitter {
 	}
 
 
+	monitorVisibility () {
+		call(this.stopMonitoringVisibility);
+
+		VisibilityMonitor.addChangeListener(this.onVisibilityChange);
+
+		this.stopMonitoringVisibility = () => {
+			VisibilityMonitor.removeChangeListener(this.onVisibilityChange);
+		};
+	}
+
+
+	onVisibilityChange = (visible) => {
+		if (visible) {
+			this.onActive();
+			if (this.listenerCount(CHANGE_EVENT) > 0) {
+				this.monitor.start();
+			}
+		} else {
+			this.monitor.stop();
+			this.onIdle();
+		}
+	}
+
+
 	onActive () {
 		if (!this.active) {
 			updateValue(this, 'active', true);
@@ -43,14 +71,19 @@ export default class InactivityMonitor extends EventEmitter {
 
 	addChangeListener (fn) {
 		this.addListener(CHANGE_EVENT, fn);
+		this.monitorVisibility();
+		this.monitor.start();
 
-		return () => {
-			this.removeListener(CHANGE_EVENT, fn);
-		};
+		return () => this.removeChangeListener(fn);
 	}
 
 
 	removeChangeListener (fn) {
 		this.removeListener(CHANGE_EVENT, fn);
+
+		if (this.listenerCount(CHANGE_EVENT) === 0) {
+			call(this.stopMonitoringVisibility);
+			this.monitor.stop();
+		}
 	}
 }
