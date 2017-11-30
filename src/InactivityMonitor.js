@@ -13,7 +13,7 @@ export default class InactivityMonitor extends EventEmitter {
 	constructor (element) {
 		super();
 
-		Object.assignProperties(this, {
+		Object.defineProperties(this, {
 			...defineProtected({
 				active: true,
 				monitor: new Tasks.Idle({
