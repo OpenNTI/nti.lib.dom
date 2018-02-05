@@ -38,6 +38,8 @@ export scrollElementTo from './scrollelementto';
 export getFragmentFromString from './get-fragment-from-string';
 export getEffectiveZIndex from './get-effective-z-index';
 
+export {TransitionEvents} from './TransitionEvents';
+
 export {
 	getDocument,
 	getHeight as getViewportHeight,
