@@ -12,6 +12,7 @@ const call = x => typeof x === 'function' && x();
 export default class InactivityMonitor extends EventEmitter {
 	constructor (element) {
 		super();
+		this.setMaxListeners(0);//don't test for memory leaks.
 
 		Object.defineProperties(this, {
 			...defineProtected({
