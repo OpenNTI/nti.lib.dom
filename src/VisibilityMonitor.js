@@ -28,7 +28,7 @@ export class VisibilityMonitor extends EventEmitter {
 
 	constructor () {
 		super();
-
+		this.setMaxListeners(0);//don't test for memory leaks.
 		const doc = typeof document !== 'undefined' ? document : null;
 
 		if (prefix !== null && doc) {
