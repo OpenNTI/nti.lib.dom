@@ -1,6 +1,6 @@
 import EventEmitter from 'events';
 
-import {Tasks, defineProtected, updateValue} from 'nti-commons';
+import {Tasks, defineProtected, updateValue} from '@nti/lib-commons';
 
 import VisibilityMonitor from './VisibilityMonitor';
 

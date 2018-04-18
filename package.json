@@ -1,5 +1,5 @@
 {
-  "name": "nti-lib-dom",
+  "name": "@nti/lib-dom",
   "version": "1.11.0-alpha",
   "author": "nextthought",
   "license": "UNLICENSED",
@@ -22,12 +22,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/NextThought/nti.lib.domjs.git"
+    "url": "https://github.com/NextThought/nti.lib.dom.git"
   },
   "dependencies": {
-    "nti-commons": "^2.10.0",
-    "nti-util-detection-touch": "^1.0.0",
-    "nti-util-logger": "^1.0.0",
+    "@nti/lib-commons": "^2.10.0",
+    "@nti/util-detection-touch": "^1.0.0",
+    "@nti/util-logger": "^1.0.0",
     "scrollparent": "^1.0.0"
   },
   "devDependencies": {

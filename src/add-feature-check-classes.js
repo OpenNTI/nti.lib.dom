@@ -1,4 +1,4 @@
-import isTouch from 'nti-util-detection-touch';
+import isTouch from '@nti/util-detection-touch';
 
 import addClass from './addclass';
 import removeClass from './removeclass';
