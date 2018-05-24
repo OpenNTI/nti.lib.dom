@@ -6,6 +6,9 @@
   "description": "Browser DOM abstraction library",
   "main": "lib/cjs-index.js",
   "module": "lib/index.js",
+  "publishConfig": {
+    "registry": "https://npm.nextthought.com/"
+  },
   "files": [
     "lib"
   ],
