@@ -1,10 +1,7 @@
 import scrollParent from 'scrollparent';
 
 const WINDOW = typeof window === 'undefined' ? global : window;
-const shouldBeWindow = el => !el || el.tagName === 'BODY' && el.clientHeight <= el.scrollHeight;
-
-if (typeof document !== 'undefined' && !document.scrollingElement) {
-	document.scrollingElement = WINDOW;
-}
+const TAG = /body|html/i;
+const shouldBeWindow = el => !el || TAG.test(el.tagName) && el.clientHeight <= el.scrollHeight;
 
 export default el => (x => shouldBeWindow(x) ? WINDOW : x)(scrollParent(el));
