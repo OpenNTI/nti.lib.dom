@@ -4,13 +4,14 @@
   "author": "nextthought",
   "license": "UNLICENSED",
   "description": "Browser DOM abstraction library",
-  "main": "lib/cjs-index.js",
-  "module": "lib/index.js",
+  "main": "lib/index.js",
+  "module": "src/index.js",
   "publishConfig": {
     "registry": "https://npm.nextthought.com/"
   },
   "files": [
-    "lib"
+    "lib",
+    "src"
   ],
   "testEnvironment": "jsdom",
   "scripts": {
@@ -34,6 +35,6 @@
     "scrollparent": "^2.0.1"
   },
   "devDependencies": {
-    "@nti/lib-scripts": "^1.16.0"
+    "@nti/lib-scripts": "^2.0.0"
   }
 }
