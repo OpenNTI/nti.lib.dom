@@ -1,6 +1,6 @@
 import { applyStyles } from '../style/apply-styles';
 
-const isConfig = RegExp.prototype.test.bind(/^(?:tag|children|cn|html)$/i);
+const isConfig = RegExp.prototype.test.bind(/^(?:tag|children|cn|html|style)$/i);
 
 /**
  * Creates new DOM element(s)
@@ -20,8 +20,8 @@ export function createDOM (o, parentNode) {
 	if (Array.isArray(o)) { // Allow Arrays of siblings to be inserted
 		el = doc.createDocumentFragment(); // in one shot using a DocumentFragment
 
-		for (let i = 0, l = o.length; i < l; i++) {
-			createDOM(o[i], el);
+		for (let i of o) {
+			createDOM(i, el);
 		}
 
 	}
@@ -35,13 +35,7 @@ export function createDOM (o, parentNode) {
 
 		for (let attr in o) {
 			if (!isConfig(attr)) {
-				let val = o[attr];
-				if (attr === 'cls' || attr === 'class') {
-					el.className = val;
-				}
-				else {
-					el.setAttribute(attr, val);
-				}
+				el.setAttribute(attr == 'cls' ? 'class' : attr, o[attr]);
 			}
 		}
 

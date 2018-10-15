@@ -6,9 +6,11 @@ exports[`createDOM 2`] = `
 <span
   class="foobar"
   for="lala"
+  style="display: block;"
 >
   <div
     class="baz"
+    style="color: red;"
   />
   <div
     class="boo"

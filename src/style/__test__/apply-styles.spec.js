@@ -3,14 +3,14 @@
 import { applyStyles } from '../apply-styles';
 
 test ('applyStyles', () => {
-	const styles = {};
+	const style = {};
 
 	expect(() => applyStyles()).not.toThrow();
-	expect(() => applyStyles({styles}, null)).not.toThrow();
+	expect(() => applyStyles({style}, null)).not.toThrow();
 
-	expect(() => applyStyles({styles}, 'foo-bar:123;;va')).not.toThrow();
-	expect(styles).toEqual({fooBar: '123'});
+	expect(() => applyStyles({style}, 'foo-bar:123;;va')).not.toThrow();
+	expect(style).toEqual({fooBar: '123'});
 
-	expect(() => applyStyles({styles}, {baz: 'bar'})).not.toThrow();
-	expect(styles).toEqual({baz: 'bar', fooBar: '123'});
+	expect(() => applyStyles({style}, {baz: 'bar'})).not.toThrow();
+	expect(style).toEqual({baz: 'bar', fooBar: '123'});
 });

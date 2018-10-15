@@ -27,6 +27,6 @@ export function applyStyles (el, styles) {
 	}
 
 	if (styles && typeof styles === 'object') {
-		Object.assign(el.styles, styles);
+		Object.assign(el.style, styles);
 	}
 }

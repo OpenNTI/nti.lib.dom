@@ -3,6 +3,7 @@ export function getStyle (el, ...properties) {
 	const getStyles = x => {
 		// IE throws on elements created in popups
 		// FF meanwhile throws on frame elements (see jQuery source)
+		/* istanbul ignore next */
 		if ( x.ownerDocument.defaultView.opener ) {
 			return x.ownerDocument.defaultView.getComputedStyle( x, null );
 		}
@@ -12,6 +13,7 @@ export function getStyle (el, ...properties) {
 	const styles = getStyles(el);
 	const values = styles
 		? properties.map(property => styles[property])
+		/* istanbul ignore next */
 		: [];
 
 	return length === 1
