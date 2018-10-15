@@ -13,6 +13,10 @@ export function createDOM (o, parentNode) {
 	let el;
 	let doc = parentNode ? parentNode.ownerDocument : document;
 
+	if (!o) {
+		return o;
+	}
+
 	if (Array.isArray(o)) { // Allow Arrays of siblings to be inserted
 		el = doc.createDocumentFragment(); // in one shot using a DocumentFragment
 
@@ -36,12 +40,7 @@ export function createDOM (o, parentNode) {
 					el.className = val;
 				}
 				else {
-					if (el.setAttribute) {
-						el.setAttribute(attr, val);
-					}
-					else {
-						el[attr] = val;
-					}
+					el.setAttribute(attr, val);
 				}
 			}
 		}
