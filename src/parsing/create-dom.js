@@ -35,7 +35,7 @@ export function createDOM (o, parentNode) {
 
 		for (let attr in o) {
 			if (!isConfig(attr)) {
-				el.setAttribute(attr == 'cls' ? 'class' : attr, o[attr]);
+				el.setAttribute(attr === 'cls' ? 'class' : attr, o[attr]);
 			}
 		}
 
