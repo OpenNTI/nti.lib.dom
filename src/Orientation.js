@@ -1,5 +1,4 @@
-import addClass from './addclass';
-import removeClass from './removeclass';
+import { addClass, removeClass } from './style';
 
 function handler (component) {
 	let {body} = document;
