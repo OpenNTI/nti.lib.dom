@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`applyStyles 1`] = `<div />`;
+exports[`createDOM 1`] = `<div />`;
 
-exports[`applyStyles 2`] = `
+exports[`createDOM 2`] = `
 <span
   class="foobar"
   for="lala"

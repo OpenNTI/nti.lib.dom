@@ -1,7 +1,7 @@
 /* eslint-env jest */
 import { createDOM } from '../create-dom';
 
-test ('applyStyles', () => {
+test ('createDOM', () => {
 
 	expect(() => createDOM()).not.toThrow();
 
