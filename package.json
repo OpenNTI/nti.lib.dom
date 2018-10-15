@@ -31,8 +31,7 @@
   "dependencies": {
     "@nti/lib-commons": "^2.10.0",
     "@nti/util-detection-touch": "^1.0.0",
-    "@nti/util-logger": "^1.0.0",
-    "scrollparent": "^2.0.1"
+    "@nti/util-logger": "^1.0.0"
   },
   "devDependencies": {
     "@nti/lib-scripts": "^2.0.0"
