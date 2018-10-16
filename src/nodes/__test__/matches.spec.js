@@ -29,4 +29,18 @@ describe ('matches', () => {
 		expect(matches(undefined, '.foo')).toBeFalsy();
 		expect(matches(document.createTextNode('bla'), '.foo')).toBeFalsy();
 	});
+
+	test ('no polyfill', () => {
+
+		let div = make('div');
+
+		delete matches.nativeFn;
+		Object.defineProperty(matches, 'nativeFn', {
+			get: () => null,
+			set: () => {}
+		});
+
+		expect(() => matches(div, 'div')).toThrow('Unsupported API: matches()');
+
+	});
 });

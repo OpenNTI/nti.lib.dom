@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`index 1`] = `
+Array [
+  "getElementRect",
+  "isPointWithin",
+  "isZeroRect",
+  "safeBoundingBoxForRange",
+  "getDocument",
+  "getViewportHeight",
+  "getViewportWidth",
+  "getScreenWidth",
+  "getScreenHeight",
+]
+`;

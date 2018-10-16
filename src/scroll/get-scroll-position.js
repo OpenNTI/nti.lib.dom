@@ -1,5 +1,4 @@
-import { getStyle } from '../style/get-style';
-
+import { isScroller } from './is-scroller';
 import { getScrollParent } from './get-scroll-parent';
 
 const getDocEl = (win) => win.document && win.document.documentElement || document.body;
@@ -9,12 +8,10 @@ const getWindowScrollHeight = (win) => getDocEl(win).scrollHeight;
 const getWindowScrollWidth = (win) => getDocEl(win).scrollWidth;
 
 export function getScrollPosition (el) {
-	const overflow = /auto|scroll/i;
-	const isScroller = e =>
-		(e.scrollHeight > e.offsetHeight && overflow.test(getStyle(e, 'overflow', 'overflow-x', 'overflow-y').join(''))) ||
-				(e.tagName === 'BODY' && e.scrollHeight === e.offsetHeight);
+	const scrolls = e =>
+		isScroller(e) || (e.tagName === 'BODY' && e.scrollHeight === e.offsetHeight);
 
-	if (!isScroller(el)) {
+	if (!scrolls(el)) {
 		el = getScrollParent(el);
 	}
 

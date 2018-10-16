@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`index 1`] = `
+Array [
+  "enforceNumber",
+  "inRange",
+  "isValueEmpty",
+  "retargetAnchorsWithExternalRefs",
+  "sanitizeExternalContentForInput",
+]
+`;

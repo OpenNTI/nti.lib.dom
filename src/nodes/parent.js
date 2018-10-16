@@ -12,6 +12,10 @@ const isEmpty = (e) => e == null || e === '';
 export function parent (el, selector) {
 	if (isTextNode(el)) {
 		el = el.parentNode;
+
+		if(isEmpty(selector)) {
+			return el;
+		}
 	}
 
 	if (el) {

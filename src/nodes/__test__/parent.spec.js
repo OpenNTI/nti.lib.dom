@@ -10,21 +10,28 @@ const make = (n, p, c) => {
 
 describe ('parent', () => {
 
+	test ('No args', () => {
+		expect(() => parent()).not.toThrow();
+	});
+
 	test ('should return the imediate parent node if no selector given', () => {
 
 		let m = make('a', make('li'));
+		let t = document.createTextNode('sup');
+		m.appendChild(t);
 
+		expect(parent(t)).toBe(m);
 		expect(parent(m)).toBe(m.parentNode);
 	});
-
 
 	test ('should return the first parent that matches the selector', () => {
 
 		let target = make('div', make('body', null, 'foo'), 'foo');
 		let m = make('a', make('li', make('ul', target)));
+		let t = document.createTextNode('sup');
+		m.appendChild(t);
 
-		let el = parent(m, '.foo');
-
-		expect(el).toBe(target);
+		expect(parent(m, '.foo')).toBe(target);
+		expect(parent(t, '.foo')).toBe(target);
 	});
 });

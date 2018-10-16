@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`index 1`] = `
+Array [
+  "addClass",
+  "addFeatureCheckClasses",
+  "applyStyles",
+  "getEffectiveZIndex",
+  "getStyle",
+  "hasClass",
+  "removeClass",
+  "toCSSClassName",
+]
+`;

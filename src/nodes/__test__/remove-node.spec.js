@@ -23,4 +23,22 @@ describe ('removeNode', () => {
 		expect(el.parentNode).toBeFalsy();
 		expect(li.childNodes.length).toBe(0);
 	});
+
+	test ('remove a node from the dom 2', () => {
+
+		let el = make('a', make('li', make('ul', make('div', make('body')))));
+		let li = el.parentNode;
+
+		expect(el.parentNode).toBeTruthy();
+		expect(li.childNodes.length).toBe(1);
+
+		Object.defineProperty(el, 'remove', {value: void 0});
+
+		removeNode(el);
+
+		expect(el.parentNode).toBeFalsy();
+		expect(li.childNodes.length).toBe(0);
+
+		expect(() => removeNode(el)).not.toThrow();
+	});
 });

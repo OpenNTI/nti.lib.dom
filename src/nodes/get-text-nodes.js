@@ -1,4 +1,3 @@
-import { isElement } from './is-element';
 import { isTextNode } from './is-text-node';
 
 export function getTextNodes (root) {
@@ -10,7 +9,8 @@ export function getTextNodes (root) {
 		if (isTextNode(node)) {
 			textNodes.push(node);
 		}
-		else if (isElement(node)) {
+		/* istanbul ignore else */
+		else if (node && node.firstChild) {
 			for (child = node.firstChild; child; child = child.nextSibling) {
 				getNodes(child);
 			}

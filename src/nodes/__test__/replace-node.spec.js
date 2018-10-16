@@ -26,7 +26,9 @@ describe ('replaceNode', () => {
 		expect(li.firstChild.nextSibling).toBe(el2);
 		expect(li.lastChild).toBe(el3);
 
-		replaceNode(el2, replacement);
+		expect(() => replaceNode(li)).toThrow();
+		expect(replaceNode(el2, replacement)).toBe(el2);
+
 
 		expect(el2.parentNode).toBeFalsy();
 
@@ -34,5 +36,7 @@ describe ('replaceNode', () => {
 		expect(li.firstChild).toBe(el1);
 		expect(li.firstChild.nextSibling).toBe(replacement);
 		expect(li.lastChild).toBe(el3);
+
+		expect(replaceNode(el1)).toBe(el1);
 	});
 });

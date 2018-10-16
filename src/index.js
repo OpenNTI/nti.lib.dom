@@ -6,11 +6,9 @@ export * from './scroll';
 export * from './style';
 export * from './values';
 
-export const URL = global.URL && global.URL.createObjectURL ?
-	global.URL :
-	global.webkitURL && global.webkitURL.createObjectURL ?
-		global.webkitURL :
-		null;
+/* istanbul ignore next */
+const isURL = x => (x && x.createObjectURL && x);
+export const URL = isURL(global.URL) || isURL(global.webkitURL) || null;
 
 export ApplicationCache from './ApplicationCache';
 export InactivityMonitor from './InactivityMonitor';
