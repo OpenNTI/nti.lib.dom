@@ -1,14 +1,10 @@
 /* eslint-env jest */
 import { getScrollPosition } from '../get-scroll-position';
-import { createDOM } from '../../parsing/create-dom';
 
 test ('getScrollPosition', () => {
-	const div = createDOM({
-		cn: [{
-			id: 'foo'
-		}]
-	}, document.body);
-
+	const { body } = document;
+	body.innerHTML = '<div><div id="foo"></div></div>';
+	const div = body.firstChild;
 	const foo = div.firstChild;
 
 	Object.defineProperty(foo, 'scrollHeight', { value: 100 });

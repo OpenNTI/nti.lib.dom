@@ -15,6 +15,6 @@ function scrollParent (node) {
 		|| document.documentElement;
 }
 
-const shouldBeWindow = el => !el || ROOT_ELEMENTS.test(el.tagName) && el.clientHeight <= el.scrollHeight;
+const shouldBeWindow = el => !el || (ROOT_ELEMENTS.test(el.tagName) && el.clientHeight <= el.scrollHeight);
 
 export const getScrollParent = el => (x => shouldBeWindow(x) ? WINDOW : x)(scrollParent(el));

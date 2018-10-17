@@ -1,7 +1,7 @@
 import { isScroller } from './is-scroller';
 import { getScrollParent } from './get-scroll-parent';
 
-const getDocEl = (win) => win.document && win.document.documentElement || document.body;
+const getDocEl = (win) => (win.document && win.document.documentElement) || document.body;
 const getWindowScrollTop = (win) => getDocEl(win).scrollTop;
 const getWindowScrollLeft = (win) => getDocEl(win).scrollLeft;
 const getWindowScrollHeight = (win) => getDocEl(win).scrollHeight;
