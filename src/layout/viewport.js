@@ -1,6 +1,13 @@
 export function getDocument () {
-	return typeof document === 'undefined' ? {} :
-		document.documentElement || {};
+	return typeof document === 'undefined'
+		/* istanbul ignore next */
+		? {}
+		: document.documentElement;
+}
+
+function getScreen () {
+	/* istanbul ignore next */
+	return global.screen || {};
 }
 
 export function getViewportHeight () {
@@ -13,10 +20,10 @@ export function getViewportWidth () {
 
 export function getScreenWidth () {
 	let fallback = getViewportWidth();
-	return (global.screen || {}).width || fallback;
+	return getScreen().width || fallback;
 }
 
 export function getScreenHeight () {
 	let fallback = getViewportHeight();
-	return (global.screen || {}).height || fallback;
+	return getScreen().height || fallback;
 }

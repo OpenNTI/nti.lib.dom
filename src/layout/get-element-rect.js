@@ -1,5 +1,7 @@
 import { getViewportWidth, getViewportHeight } from './viewport';
 
+import { isElement } from '../nodes/is-element';
+
 export function getElementRect (el) {
 	let rect, w, h;
 	if (el && el.getBoundingClientRect) {
@@ -10,8 +12,10 @@ export function getElementRect (el) {
 		rect = {top, left, bottom, right, width, height};
 	}
 
+	/* istanbul ignore else */
 	if (!rect && el) {
-		if (el.nodeType !== 1/*Node.ELEMENT_NODE*/) {
+		/* istanbul ignore else */
+		if (!isElement(el)) {
 			//
 			h = getViewportHeight();
 			w = getViewportWidth();
