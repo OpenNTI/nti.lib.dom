@@ -1,6 +1,8 @@
-export function addEventListener (el, event, handler) {
+const defaultOptions = {capture: true};
+
+export function addEventListener (el, event, handler, options = {}) {
 	if (el.addEventListener) {
-		el.addEventListener(event, handler, true);
+		el.addEventListener(event, handler, {...defaultOptions, ...options});
 	}
 
 	else if (el.attachEvent) {
