@@ -14,7 +14,7 @@ describe ('parent', () => {
 		expect(() => parent()).not.toThrow();
 	});
 
-	test ('should return the imediate parent node if no selector given', () => {
+	test ('should return the immediate parent node if no selector given', () => {
 
 		let m = make('a', make('li'));
 		let t = document.createTextNode('sup');
