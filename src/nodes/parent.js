@@ -23,6 +23,10 @@ export function parent (el, selector) {
 			el = el.parentNode;
 		}
 		else {
+			if (typeof el.closest === 'function') {
+				return el.closest(selector);
+			}
+
 			while(el && !matches(el, selector)) {
 				el = el.parentNode;
 			}
