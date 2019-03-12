@@ -34,4 +34,22 @@ describe ('parent', () => {
 		expect(parent(m, '.foo')).toBe(target);
 		expect(parent(t, '.foo')).toBe(target);
 	});
+
+	test ('should use element.closest when available', () => {
+		const closest = jest.fn();
+		parent({closest}, '.some-selector');
+		expect(closest).toHaveBeenCalled();
+	});
+
+	test ('should walk the tree when element.closest is not available', () => {
+		const DEPTH = 3;
+		const node = Object.defineProperties({count: 0}, {
+			parentNode: {
+				get: jest.fn(() => ++node.count < DEPTH ? node : null)
+			}
+		});
+
+		parent(node, '.some-selector');
+		expect(Object.getOwnPropertyDescriptor(node, 'parentNode').get).toHaveBeenCalledTimes(DEPTH);
+	});
 });
