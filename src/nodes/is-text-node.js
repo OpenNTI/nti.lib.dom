@@ -1,4 +1,3 @@
-/*global Node*/
 //Node.TEXT_NODE -- we can't trust the constant to be defined, but we can trust
 // the spec's value: 3 === TEXT_NODE
 // ALSO, Node is not defined in node.js

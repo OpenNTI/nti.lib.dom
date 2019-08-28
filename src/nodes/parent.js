@@ -1,4 +1,3 @@
-/*global Node*/
 import { isTextNode } from './is-text-node';
 import { matches } from './matches';
 

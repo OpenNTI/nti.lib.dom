@@ -34,6 +34,6 @@
     "@nti/util-logger": "^1.0.0"
   },
   "devDependencies": {
-    "@nti/lib-scripts": "^2.0.0"
+    "@nti/lib-scripts": "^2.12.0"
   }
 }
