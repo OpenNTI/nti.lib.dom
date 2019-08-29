@@ -1,6 +1,7 @@
+import { isElement } from '../nodes/is-element';
+
 import { getViewportWidth, getViewportHeight } from './viewport';
 
-import { isElement } from '../nodes/is-element';
 
 export function getElementRect (el) {
 	let rect, w, h;
