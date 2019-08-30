@@ -11,9 +11,10 @@ export function addFeatureCheckClasses () {
 	const browser = identifyBrowser();
 	if(browser) {
 		addClass(RootNode, browser);
-		calculateVH();
-		global.addEventListener('resize', calculateVH);
 	}
+
+	calculateVH();
+	window.addEventListener('resize', calculateVH);
 }
 
 // http://stackoverflow.com/a/9851769/636077
@@ -26,7 +27,9 @@ function identifyBrowser () {
 	const isFirefox = typeof InstallTrigger !== 'undefined';
 
 	// Safari 3.0+ "[object HTMLElementConstructor]"
-	const isSafari = Object.prototype.toString.call(global.HTMLElement).indexOf('Constructor') > 0 || (((p) => p.toString() === '[object SafariRemoteNotification]')(!global['safari'] || global['safari'].pushNotification));
+	const isSafari = Object.prototype.toString.call(global.HTMLElement).indexOf('Constructor') > 0
+					|| (((p) => p.toString() === '[object SafariRemoteNotification]')(!global['safari'] || global['safari'].pushNotification))
+					|| /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
 	// Internet Explorer 6-11
 	const isIE = /*@cc_on!@*/false || !!document.documentMode;
@@ -53,9 +56,9 @@ function identifyBrowser () {
 
 function calculateVH () {
 	try {
-		const vh = window.innerHeight * 0.01;
+		const vh = window.innerHeight / 100;
 		document.documentElement.style.setProperty('--vh', `${vh}px`);
 	} catch {
-		global.removeEventListener('resize', calculateVH);
+		window.removeEventListener('resize', calculateVH);
 	}
 }
