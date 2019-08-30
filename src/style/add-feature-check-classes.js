@@ -11,6 +11,8 @@ export function addFeatureCheckClasses () {
 	const browser = identifyBrowser();
 	if(browser) {
 		addClass(RootNode, browser);
+		calculateVH();
+		global.addEventListener('resize', calculateVH);
 	}
 }
 
@@ -46,4 +48,14 @@ function identifyBrowser () {
 						: isChrome ? 'is-chrome'
 							: isBlink ? 'is-blink'
 								: '';
+}
+
+
+function calculateVH () {
+	try {
+		const vh = window.innerHeight * 0.01;
+		document.documentElement.style.setProperty('--vh', `${vh}px`);
+	} catch {
+		global.removeEventListener('resize', calculateVH);
+	}
 }
