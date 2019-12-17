@@ -1,3 +1,4 @@
+export * from './add-click-out-listener';
 export * from './TransitionEvents';
 export * from './add-event-listener';
 export * from './get-event-target';
