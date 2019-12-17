@@ -8,6 +8,7 @@ Array [
   "VisibilityMonitor",
   "WindowMessageListener",
   "URL",
+  "addClickOutListener",
   "TransitionEvents",
   "addEventListener",
   "getEventTarget",
