@@ -10,8 +10,8 @@ export * from './values';
 const isURL = x => (x && x.createObjectURL && x);
 export const URL = isURL(global.URL) || isURL(global.webkitURL) || null;
 
-export ApplicationCache from './ApplicationCache';
-export InactivityMonitor from './InactivityMonitor';
-export Orientation from './Orientation';
-export VisibilityMonitor from './VisibilityMonitor';
-export WindowMessageListener from './WindowMessageListener';
+export { default as ApplicationCache } from './ApplicationCache';
+export { default as InactivityMonitor } from './InactivityMonitor';
+export { default as Orientation } from './Orientation';
+export { default as VisibilityMonitor } from './VisibilityMonitor';
+export { default as WindowMessageListener } from './WindowMessageListener';
