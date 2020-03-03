@@ -5,6 +5,7 @@ Array [
   "addClickOutListener",
   "TransitionEvents",
   "addEventListener",
+  "addKeyboardBlurListener",
   "getEventTarget",
   "isMultiTouch",
   "removeEventListener",
