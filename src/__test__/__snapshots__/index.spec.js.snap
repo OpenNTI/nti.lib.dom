@@ -27,7 +27,7 @@ Array [
   "declareCustomElement",
   "filterNodeList",
   "focusElement",
-  "getFocusableDescendant",
+  "getFocusableDescendants",
   "isFocusable",
   "focusDescendant",
   "focusDescendantOrElement",
