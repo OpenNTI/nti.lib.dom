@@ -2,6 +2,7 @@
 
 exports[`index 1`] = `
 Array [
+  "__esModule",
   "addClass",
   "addFeatureCheckClasses",
   "applyStyles",
