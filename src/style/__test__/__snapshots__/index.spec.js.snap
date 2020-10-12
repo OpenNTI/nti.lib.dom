@@ -6,9 +6,13 @@ Array [
   "addClass",
   "addFeatureCheckClasses",
   "applyStyles",
+  "copyCustomPropertiesIntoIFrame",
+  "getAllCustomProperties",
+  "getAllCustomPropertyValuesAtElement",
   "getEffectiveZIndex",
   "getStyle",
   "hasClass",
+  "injectCustomProperties",
   "removeClass",
   "toCSSClassName",
 ]
