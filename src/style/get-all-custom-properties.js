@@ -27,11 +27,11 @@ export const getAllCustomProperties = () => Array.from(new Set(
 			...([...sheet.cssRules]
 				.filter(isStyleRule)
 				.reduce((props, rule) => [
-						...props,
-						...[...rule.style]
-							.map(name => name.trim())
-							.filter(name => name.indexOf("--") === 0)
+					...props,
+					...[...rule.style]
+						.map(name => name.trim())
+						.filter(name => name.indexOf('--') === 0)
 				], [])
 			)
 		], [])
-	));
+));

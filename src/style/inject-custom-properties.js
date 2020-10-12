@@ -1,8 +1,9 @@
 /**
  * Injects css vars into a document
  *
- * @param {Document} document The document to inject to.
- * @param {string[][]} properties array of name/value pairs to inject
+ * @param {Document} document - The document to inject to.
+ * @param {Array.<string[]>} properties - array of name/value pairs to inject
+ * @returns {void}
  */
 export function injectCustomProperties (document, properties) {
 	const styleEl = document.createElement('style');
@@ -11,5 +12,5 @@ export function injectCustomProperties (document, properties) {
 
 	properties = properties.reduce((set, [name, value]) => `${set}${name}: ${value};`, '');
 
-	sheet.insertRule(':root {' + properties + '}')
+	sheet.insertRule(':root {' + properties + '}');
 }
