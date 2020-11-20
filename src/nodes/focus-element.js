@@ -10,7 +10,7 @@ export function focusElement (el) {
 }
 
 export function getFocusableDescendants (el, filterHidden = true) {
-	if (el?.querySelectorAll) {
+	if (el && el.querySelectorAll) {
 		return Array
 			.from(el.querySelectorAll(focusableSelector))
 			.filter(n => n.getAttribute('aria-hidden') !== 'true');
