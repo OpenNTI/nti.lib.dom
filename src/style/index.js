@@ -5,6 +5,7 @@ export * from './copy-custom-properties-into-iframe';
 export * from './get-all-custom-properties';
 export * from './get-all-custom-property-values-at-element';
 export * from './get-effective-z-index';
+export * from './get-max-z-index';
 export * from './get-style';
 export * from './has-class';
 export * from './inject-custom-properties';
