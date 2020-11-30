@@ -54,6 +54,7 @@ Array [
   "getAllCustomProperties",
   "getAllCustomPropertyValuesAtElement",
   "getEffectiveZIndex",
+  "getMaxZIndex",
   "getStyle",
   "hasClass",
   "injectCustomProperties",
