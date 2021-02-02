@@ -7,8 +7,8 @@ const getElementWithContent = (tag, x) => (tag = document.createElement(tag), ta
  * If needed we can add a fallback for older browsers and server rendering
  *
  * @throws {Error} If document is not defined
- * @param  {String} str the string to parse
- * @return {Fragment}    the parsed fragment
+ * @param  {string} str the string to parse
+ * @returns {Fragment}    the parsed fragment
  */
 export function getFragmentFromString (str) {
 	if (typeof document === 'undefined') {

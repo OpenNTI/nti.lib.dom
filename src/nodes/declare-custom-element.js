@@ -6,8 +6,8 @@
  * until they've been created with document.createElement.
  *
  * @method declareCustomElement
- * @param  {String} name The element name to define. Ex: 'dialog', 'section', 'header', 'footer', 'nav', etc...
- * @return {void}
+ * @param  {string} name The element name to define. Ex: 'dialog', 'section', 'header', 'footer', 'nav', etc...
+ * @returns {void}
  */
 export function declareCustomElement (name) {
 	if (typeof document !== 'undefined') {

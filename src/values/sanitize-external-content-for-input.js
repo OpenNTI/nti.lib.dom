@@ -36,7 +36,7 @@ export function sanitizeExternalContentForInput (html) {
  * @param {Node} root - Root Node to select unwanted elements
  * @param {boolean} cleanAttributes - if true, will remove all attributes that
  *                                    are not white listed. (See KEEP_ATTRS)
- * @return {Node[]} Array of Nodes
+ * @returns {Node[]} Array of Nodes
  * @private
  */
 function pickUnsanitaryElements (root, cleanAttributes) {
@@ -54,7 +54,7 @@ function pickUnsanitaryElements (root, cleanAttributes) {
 			SCRIPT: 1, OBJECT: 1, EMBED: 1, APPLET: 1
 		};
 
-	tw = document.createTreeWalker(root, NodeFilter.SHOW_COMMENT | NodeFilter.SHOW_ELEMENT, null, false);// eslint-disable-line no-bitwise
+	tw = document.createTreeWalker(root, NodeFilter.SHOW_COMMENT | NodeFilter.SHOW_ELEMENT, null, false);
 	do {
 		el = tw.nextNode();
 		if (!el) { continue; }
@@ -96,7 +96,7 @@ function pickUnsanitaryElements (root, cleanAttributes) {
  * node, remove it too...until we get to the root)
  *
  * @param {Node} el element to remove
- * @return {void}
+ * @returns {void}
  * @private
  */
 function removeNodeRecursively (el) {
