@@ -2,13 +2,12 @@
 
 exports[`index 1`] = `
 Array [
-  "__esModule",
-  "URL",
   "ApplicationCache",
   "InactivityMonitor",
   "Orientation",
   "VisibilityMonitor",
   "WindowMessageListener",
+  "URL",
   "addClickOutListener",
   "TransitionEvents",
   "addEventListener",

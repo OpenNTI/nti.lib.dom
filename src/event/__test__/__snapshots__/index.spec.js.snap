@@ -2,7 +2,6 @@
 
 exports[`index 1`] = `
 Array [
-  "__esModule",
   "addClickOutListener",
   "TransitionEvents",
   "addEventListener",
