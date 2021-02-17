@@ -23,6 +23,22 @@ export function isFocusable (el) {
 	return matches(el, focusableSelector);
 }
 
+export function getFocusedElement () {
+	return document?.activeElement;
+}
+
+export function hasFocus (el) {
+	const focused = getFocusedElement();
+
+	return focused === el;
+}
+
+export function hasFocusWithin (el) {
+	const focused = getFocusedElement();
+
+	return focused && (focused === el || el.contains(focused));
+}
+
 export function focusDescendant (el) {
 	const descendants = Array.from(getFocusableDescendants(el));
 	const first = descendants ? descendants[0] : null;
