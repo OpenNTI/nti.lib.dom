@@ -1,15 +1,18 @@
 import { applyStyles } from '../style/apply-styles';
 
-const isConfig = RegExp.prototype.test.bind(/^(?:tag|children|cn|html|style)$/i);
+const isConfig = RegExp.prototype.test.bind(
+	/^(?:xmlns|tag|children|cn|html|style)$/i
+);
 
 /**
  * Creates new DOM element(s)
  *
  * @param {Object/String} o DOM spec
  * @param {HTMLElement} [parentNode] Optional DOM node to append the generated elements.
+ * @param {string} xmlns
  * @returns {HTMLElement} The new node
  */
-export function createDOM (o, parentNode) {
+export function createDOM(o, parentNode, xmlns = o?.xmlns) {
 	let el;
 	let doc = parentNode ? parentNode.ownerDocument : document;
 
@@ -17,25 +20,29 @@ export function createDOM (o, parentNode) {
 		return o;
 	}
 
-	if (Array.isArray(o)) { // Allow Arrays of siblings to be inserted
+	if (Array.isArray(o)) {
+		// Allow Arrays of siblings to be inserted
 		el = doc.createDocumentFragment(); // in one shot using a DocumentFragment
 
 		for (let i of o) {
-			createDOM(i, el);
+			createDOM(i, el, xmlns);
 		}
-
-	}
-
-	else if (typeof o === 'string') {
+	} else if (typeof o === 'string') {
 		el = doc.createTextNode(o);
-	}
-
-	else {
-		el = doc.createElement(o.tag || 'div');
+	} else {
+		if (xmlns) {
+			el = doc.createElementNS(xmlns, o.tag);
+		} else {
+			el = doc.createElement(o.tag || 'div');
+		}
 
 		for (let attr in o) {
 			if (!isConfig(attr)) {
-				el.setAttribute(attr === 'cls' ? 'class' : attr, o[attr]);
+				el.setAttributeNS(
+					null,
+					attr === 'cls' ? 'class' : attr,
+					o[attr]
+				);
 			}
 		}
 
@@ -43,9 +50,8 @@ export function createDOM (o, parentNode) {
 
 		let cn = o.children || o.cn;
 		if (cn) {
-			createDOM(cn, el);
-		}
-		else if (o.html) {
+			createDOM(cn, el, xmlns);
+		} else if (o.html) {
 			el.innerHTML = o.html;
 		}
 	}
