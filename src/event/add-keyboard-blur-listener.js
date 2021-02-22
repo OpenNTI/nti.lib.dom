@@ -1,12 +1,16 @@
-export function addKeyboardBlurListener (node, fn, target = global.document) {
-	if (!node) { throw new Error(`Cannot add keyboard-blur listener to ${node}`); }
-	if (!target) { throw new Error('Cannot add keyboard-blur without a target.'); }
+export function addKeyboardBlurListener(node, fn, target = global.document) {
+	if (!node) {
+		throw new Error(`Cannot add keyboard-blur listener to ${node}`);
+	}
+	if (!target) {
+		throw new Error('Cannot add keyboard-blur without a target.');
+	}
 
 	let keyDown = false;
 	let blurTimeout = null;
 
-	const onKeyDown = () => keyDown = true;
-	const onKeyUp = () => keyDown = false;
+	const onKeyDown = () => (keyDown = true);
+	const onKeyUp = () => (keyDown = false);
 
 	const onFocusIn = () => {
 		clearTimeout(blurTimeout);

@@ -3,14 +3,12 @@ import Logger from '@nti/util-logger';
 const logger = Logger.get('WindowMessageListener');
 
 export class WindowMessageListener {
-
-	constructor () {
+	constructor() {
 		this.listers = [];
 		this.onMessage = this.onMessage.bind(this);
 	}
 
-
-	onMessage (event) {
+	onMessage(event) {
 		this.listers.forEach(fn => {
 			try {
 				fn(event);
@@ -20,28 +18,26 @@ export class WindowMessageListener {
 		});
 	}
 
-
-	attach () {
+	attach() {
 		if (!this.listening) {
 			window.addEventListener('message', this.onMessage, false);
 			this.listening = true;
 		}
 	}
 
-	detach () {
+	detach() {
 		window.removeEventListener('message', this.onMessage, false);
 		this.listening = false;
 	}
 
-	add (fn) {
-		this.listers = this.listers.filter(x=> x !== fn);
+	add(fn) {
+		this.listers = this.listers.filter(x => x !== fn);
 		this.listers.push(fn);
 		this.attach();
 	}
 
-
-	remove (fn) {
-		this.listers = this.listers.filter(x=> x !== fn);
+	remove(fn) {
+		this.listers = this.listers.filter(x => x !== fn);
 		if (this.listers.length === 0) {
 			this.detach();
 		}

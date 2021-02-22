@@ -13,7 +13,7 @@ const isEmpty = v => v == null || v === '';
  * @param {string} selector A CSS selector.
  * @returns {Element} the target element or undefined if not found.
  */
-export function getEventTarget (event, selector) {
+export function getEventTarget(event, selector) {
 	let t = event.target || event.srcElement;
 	return isEmpty(selector) ? t : parent(t, selector);
 }

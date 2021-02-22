@@ -1,16 +1,20 @@
-import {isPointWithin} from '../layout';
+import { isPointWithin } from '../layout';
 
-export function addClickOutListener (node, fn, target = global.document) {
-	if (!node) { throw new Error(`Cannot add click-out listener to ${node}`); }
-	if (!target) { throw new Error('Cannot add click-out listener without a target.'); }
+export function addClickOutListener(node, fn, target = global.document) {
+	if (!node) {
+		throw new Error(`Cannot add click-out listener to ${node}`);
+	}
+	if (!target) {
+		throw new Error('Cannot add click-out listener without a target.');
+	}
 
-	const isInNode = (el) => el === node || node.contains(el);
+	const isInNode = el => el === node || node.contains(el);
 
 	let mouseDownTarget = null;
 
-	const onMouseDown = (e) => mouseDownTarget = e.target;
+	const onMouseDown = e => (mouseDownTarget = e.target);
 
-	const onClick = (e) => {
+	const onClick = e => {
 		const startedInNode = isInNode(mouseDownTarget);
 		const endedInNode = isInNode(e.target);
 		const pointerInNode = isPointWithin(node, e.clientX, e.clientY);

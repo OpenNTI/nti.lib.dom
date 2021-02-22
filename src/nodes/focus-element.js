@@ -1,45 +1,46 @@
-import {matches} from './matches';
+import { matches } from './matches';
 
 //Taken from: https://gomakethings.com/how-to-get-the-first-and-last-focusable-elements-in-the-dom/
-const focusableSelector = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+const focusableSelector =
+	'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
 
-export function focusElement (el) {
+export function focusElement(el) {
 	if (el && el.focus) {
 		el.focus();
 	}
 }
 
-export function getFocusableDescendants (el, filterHidden = true) {
+export function getFocusableDescendants(el, filterHidden = true) {
 	if (el && el.querySelectorAll) {
-		return Array
-			.from(el.querySelectorAll(focusableSelector))
-			.filter(n => n.getAttribute('aria-hidden') !== 'true');
+		return Array.from(el.querySelectorAll(focusableSelector)).filter(
+			n => n.getAttribute('aria-hidden') !== 'true'
+		);
 	}
 
 	return [];
 }
 
-export function isFocusable (el) {
+export function isFocusable(el) {
 	return matches(el, focusableSelector);
 }
 
-export function getFocusedElement () {
+export function getFocusedElement() {
 	return document?.activeElement;
 }
 
-export function hasFocus (el) {
+export function hasFocus(el) {
 	const focused = getFocusedElement();
 
 	return focused === el;
 }
 
-export function hasFocusWithin (el) {
+export function hasFocusWithin(el) {
 	const focused = getFocusedElement();
 
 	return focused && (focused === el || el.contains(focused));
 }
 
-export function focusDescendant (el) {
+export function focusDescendant(el) {
 	const descendants = Array.from(getFocusableDescendants(el));
 	const first = descendants ? descendants[0] : null;
 
@@ -48,7 +49,7 @@ export function focusDescendant (el) {
 	}
 }
 
-export function focusDescendantOrElement (el, filter) {
+export function focusDescendantOrElement(el, filter) {
 	const descendants = Array.from(getFocusableDescendants(el), filter);
 	const first = descendants ? descendants[0] : null;
 

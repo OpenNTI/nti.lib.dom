@@ -1,10 +1,8 @@
 /* eslint-env jest */
 import { removeClass } from '../remove-class';
 
-describe ('removeClass', () => {
-
-	test ('should remove a class from an element', () => {
-
+describe('removeClass', () => {
+	test('should remove a class from an element', () => {
 		let el = document.createElement('div');
 
 		el.className = 'test';
@@ -14,9 +12,7 @@ describe ('removeClass', () => {
 		expect(el.className).toBe('');
 	});
 
-
-	test ('should not throw an error removing a non-existing class', () => {
-
+	test('should not throw an error removing a non-existing class', () => {
 		let el = document.createElement('div');
 
 		removeClass(el, 'test');
@@ -28,8 +24,7 @@ describe ('removeClass', () => {
 		expect(el.className).toBe('something');
 	});
 
-
-	test ('should not corrupt classes', () => {
+	test('should not corrupt classes', () => {
 		let test = 'a';
 		let classes = ['a', 'b', 'c', 'd'];
 
@@ -43,6 +38,6 @@ describe ('removeClass', () => {
 
 		let actual = el.className.split(' ');
 
-		expected.forEach(e=> expect(actual).toContain(e));
+		expected.forEach(e => expect(actual).toContain(e));
 	});
 });

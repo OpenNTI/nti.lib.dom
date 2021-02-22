@@ -7,10 +7,8 @@ const make = (n, c) => {
 	return e;
 };
 
-describe ('matches', () => {
-
-	test ('should normalize the vender-prefixes', () => {
-
+describe('matches', () => {
+	test('should normalize the vender-prefixes', () => {
 		let div = make('div');
 		let divWithClassFoo = make('div', 'foo');
 		let divWithClassBar = make('div', 'bar');
@@ -30,17 +28,15 @@ describe ('matches', () => {
 		expect(matches(document.createTextNode('bla'), '.foo')).toBeFalsy();
 	});
 
-	test ('no polyfill', () => {
-
+	test('no polyfill', () => {
 		let div = make('div');
 
 		delete matches.nativeFn;
 		Object.defineProperty(matches, 'nativeFn', {
 			get: () => null,
-			set: () => {}
+			set: () => {},
 		});
 
 		expect(() => matches(div, 'div')).toThrow('Unsupported API: matches()');
-
 	});
 });

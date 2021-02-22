@@ -1,7 +1,6 @@
-export function scrollElementBy (el, x, y) {
+export function scrollElementBy(el, x, y) {
 	x = x || 0;
 	y = y || 0;
-
 
 	if (el.scrollBy) {
 		return el.scrollBy(x, y);

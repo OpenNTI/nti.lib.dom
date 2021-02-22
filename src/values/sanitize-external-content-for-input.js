@@ -2,14 +2,15 @@
  * @param {string|Node} html Un-tamed wild markup.
  * @returns {string} html
  */
-export function sanitizeExternalContentForInput (html) {
+export function sanitizeExternalContentForInput(html) {
 	//html = html.trim().replace(/[\n\r]+/g, ' ');
 
 	let offScreenBuffer = document.createElement('div'),
-		toRemove, i;
+		toRemove,
+		i;
 
 	if (typeof html === 'string') {
-		offScreenBuffer.innerHTML = html.replace(/[\n\r]+/ig, ' ');
+		offScreenBuffer.innerHTML = html.replace(/[\n\r]+/gi, ' ');
 	} else {
 		offScreenBuffer.appendChild(html.cloneNode(true));
 	}
@@ -24,9 +25,8 @@ export function sanitizeExternalContentForInput (html) {
 	//get the new html content...
 	html = offScreenBuffer.innerHTML;
 	offScreenBuffer.innerHTML = ''; //free up
-	return html;//return;
+	return html; //return;
 }
-
 
 /**
  * Select the nodes we might want to remove.
@@ -39,41 +39,62 @@ export function sanitizeExternalContentForInput (html) {
  * @returns {Node[]} Array of Nodes
  * @private
  */
-function pickUnsanitaryElements (root, cleanAttributes) {
+function pickUnsanitaryElements(root, cleanAttributes) {
 	let namespaced = /:/,
-		picked = [], tw, name, value, el, i,
+		picked = [],
+		tw,
+		name,
+		value,
+		el,
+		i,
 		notJs = /^(?!javascript:).*/i,
 		present = /.*/,
 		KEEP_ATTR_IF = {
 			style: present,
 			href: notJs,
-			src: notJs
+			src: notJs,
 		},
 		BAD_NODES = {
-			LINK: 1, STYLE: 1, META: 1, TITLE: 1, HEAD: 1,
-			SCRIPT: 1, OBJECT: 1, EMBED: 1, APPLET: 1
+			LINK: 1,
+			STYLE: 1,
+			META: 1,
+			TITLE: 1,
+			HEAD: 1,
+			SCRIPT: 1,
+			OBJECT: 1,
+			EMBED: 1,
+			APPLET: 1,
 		};
 
-	tw = document.createTreeWalker(root, NodeFilter.SHOW_COMMENT | NodeFilter.SHOW_ELEMENT, null, false);
+	tw = document.createTreeWalker(
+		root,
+		NodeFilter.SHOW_COMMENT | NodeFilter.SHOW_ELEMENT,
+		null,
+		false
+	);
 	do {
 		el = tw.nextNode();
-		if (!el) { continue; }
+		if (!el) {
+			continue;
+		}
 
 		//Remove comments
-		if ((el.nodeType === Node.COMMENT_NODE) ||
+		if (
+			el.nodeType === Node.COMMENT_NODE ||
 			//remove nodes we deem bad
-			(BAD_NODES[el.tagName]) ||
+			BAD_NODES[el.tagName] ||
 			//remove empty nodes (maybe dangerous, images?, is there a way to know if an element is meant to be unary?)
 			//allow img and br tags
 			(el.childNodes.length === 0 && !/^(IMG|BR)$/i.test(el.tagName)) ||
 			//remove elements that are effectively empty (whitespace only text node as their only child)
-			(el.childNodes.length === 1 && el.childNodes[0].nodeType === Node.TEXT_NODE && el.childNodes[0].nodeValue.trim() === '') ||
+			(el.childNodes.length === 1 &&
+				el.childNodes[0].nodeType === Node.TEXT_NODE &&
+				el.childNodes[0].nodeValue.trim() === '') ||
 			//remove Office (xml namespaced) elements (that are empty)... need an would be nice to just
 			// find all patterns <(/?)FOO:BAR( ...?)> and delete them and leave the content they surround.
-			(namespaced.test(el.tagName) && el.childNodes.length === 0)) {
-
+			(namespaced.test(el.tagName) && el.childNodes.length === 0)
+		) {
 			picked.push(el);
-
 		} else if (cleanAttributes) {
 			//Clean attributes of elements we will not remove
 			i = el.attributes.length - 1;
@@ -90,7 +111,6 @@ function pickUnsanitaryElements (root, cleanAttributes) {
 	return picked;
 }
 
-
 /**
  * recursively remove an elment (if removing a node produces an empty parent
  * node, remove it too...until we get to the root)
@@ -99,9 +119,11 @@ function pickUnsanitaryElements (root, cleanAttributes) {
  * @returns {void}
  * @private
  */
-function removeNodeRecursively (el) {
+function removeNodeRecursively(el) {
 	let pn = el && el.parentNode;
-	if (!pn) { return; }
+	if (!pn) {
+		return;
+	}
 	pn.removeChild(el);
 	if (pn.childNodes.length === 0) {
 		removeNodeRecursively(pn);

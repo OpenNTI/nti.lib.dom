@@ -1,36 +1,34 @@
 import EventEmitter from 'events';
 
-import {Tasks, defineProtected, updateValue} from '@nti/lib-commons';
+import { Tasks, defineProtected, updateValue } from '@nti/lib-commons';
 
 import VisibilityMonitor from './VisibilityMonitor';
 
-const INACTIVE_TIMEOUT = 900000;//15 minutes
+const INACTIVE_TIMEOUT = 900000; //15 minutes
 const CHANGE_EVENT = 'change';
 
 const call = x => typeof x === 'function' && x();
 
 export default class InactivityMonitor extends EventEmitter {
-	constructor (element) {
+	constructor(element) {
 		super();
-		this.setMaxListeners(0);//don't test for memory leaks.
+		this.setMaxListeners(0); //don't test for memory leaks.
 
 		Object.defineProperties(this, {
 			...defineProtected({
 				active: true,
 				monitor: new Tasks.Idle({
 					element,
-					timeout: INACTIVE_TIMEOUT
-				})
-			})
+					timeout: INACTIVE_TIMEOUT,
+				}),
+			}),
 		});
-
 
 		this.monitor.on('active', () => this.onActive());
 		this.monitor.on('idle', () => this.onIdle());
 	}
 
-
-	monitorVisibility () {
+	monitorVisibility() {
 		call(this.stopMonitoringVisibility);
 
 		VisibilityMonitor.addChangeListener(this.onVisibilityChange);
@@ -40,8 +38,7 @@ export default class InactivityMonitor extends EventEmitter {
 		};
 	}
 
-
-	onVisibilityChange = (visible) => {
+	onVisibilityChange = visible => {
 		if (visible) {
 			this.onActive();
 			if (this.listenerCount(CHANGE_EVENT) > 0) {
@@ -51,26 +48,23 @@ export default class InactivityMonitor extends EventEmitter {
 			this.monitor.stop();
 			this.onIdle();
 		}
-	}
+	};
 
-
-	onActive () {
+	onActive() {
 		if (!this.active) {
 			updateValue(this, 'active', true);
 			this.emit(CHANGE_EVENT, true);
 		}
 	}
 
-
-	onIdle () {
+	onIdle() {
 		if (this.active) {
 			updateValue(this, 'active', false);
 			this.emit(CHANGE_EVENT, false);
 		}
 	}
 
-
-	addChangeListener (fn) {
+	addChangeListener(fn) {
 		this.addListener(CHANGE_EVENT, fn);
 		this.monitorVisibility();
 		this.monitor.start();
@@ -78,8 +72,7 @@ export default class InactivityMonitor extends EventEmitter {
 		return () => this.removeChangeListener(fn);
 	}
 
-
-	removeChangeListener (fn) {
+	removeChangeListener(fn) {
 		this.removeListener(CHANGE_EVENT, fn);
 
 		if (this.listenerCount(CHANGE_EVENT) === 0) {

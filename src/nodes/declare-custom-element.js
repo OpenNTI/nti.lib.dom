@@ -9,7 +9,7 @@
  * @param  {string} name The element name to define. Ex: 'dialog', 'section', 'header', 'footer', 'nav', etc...
  * @returns {void}
  */
-export function declareCustomElement (name) {
+export function declareCustomElement(name) {
 	if (typeof document !== 'undefined') {
 		document.createElement(name);
 	}

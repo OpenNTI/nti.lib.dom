@@ -1,15 +1,17 @@
 import { isScroller } from './is-scroller';
 import { getScrollParent } from './get-scroll-parent';
 
-const getDocEl = (win) => (win.document && win.document.documentElement) || document.body;
-const getWindowScrollTop = (win) => getDocEl(win).scrollTop;
-const getWindowScrollLeft = (win) => getDocEl(win).scrollLeft;
-const getWindowScrollHeight = (win) => getDocEl(win).scrollHeight;
-const getWindowScrollWidth = (win) => getDocEl(win).scrollWidth;
+const getDocEl = win =>
+	(win.document && win.document.documentElement) || document.body;
+const getWindowScrollTop = win => getDocEl(win).scrollTop;
+const getWindowScrollLeft = win => getDocEl(win).scrollLeft;
+const getWindowScrollHeight = win => getDocEl(win).scrollHeight;
+const getWindowScrollWidth = win => getDocEl(win).scrollWidth;
 
-export function getScrollPosition (el) {
+export function getScrollPosition(el) {
 	const scrolls = e =>
-		isScroller(e) || (e.tagName === 'BODY' && e.scrollHeight === e.offsetHeight);
+		isScroller(e) ||
+		(e.tagName === 'BODY' && e.scrollHeight === e.offsetHeight);
 
 	if (!scrolls(el)) {
 		el = getScrollParent(el);

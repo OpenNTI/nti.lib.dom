@@ -1,4 +1,4 @@
-export function filterNodeList (nodeList, filter) {
+export function filterNodeList(nodeList, filter) {
 	let d = Array.from(nodeList);
 
 	if (typeof filter === 'string') {

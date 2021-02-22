@@ -2,7 +2,7 @@
 import { focusElement } from '../focus-element';
 
 describe('focus-element', () => {
-	test ('doesn\'t blow up with null', () => {
+	test("doesn't blow up with null", () => {
 		const call = () => {
 			focusElement(null);
 		};
@@ -10,7 +10,7 @@ describe('focus-element', () => {
 		expect(call).not.toThrow();
 	});
 
-	test ('does\'t with no focus method', () => {
+	test("does't with no focus method", () => {
 		const call = () => {
 			focusElement({});
 		};
@@ -18,14 +18,12 @@ describe('focus-element', () => {
 		expect(call).not.toThrow();
 	});
 
-	test ('Calls focus method', () => {
-		const el = {focus: () => {}};
+	test('Calls focus method', () => {
+		const el = { focus: () => {} };
 		const spy = jest.spyOn(el, 'focus');
 		const call = () => {
 			focusElement(el);
 		};
-
-
 
 		expect(call).not.toThrow();
 

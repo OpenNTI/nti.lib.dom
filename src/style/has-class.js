@@ -1,4 +1,4 @@
-export function hasClass (el, className) {
+export function hasClass(el, className) {
 	if (el.classList && el.classList.contains) {
 		return el.classList.contains(className);
 	}

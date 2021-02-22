@@ -3,30 +3,28 @@ import { matches } from './matches';
 
 //some browsers do not define these constants.
 // ALSO, Node is not defined in node.js
-const ELEMENT_NODE = 1;//Node.ELEMENT_NODE || 1;
+const ELEMENT_NODE = 1; //Node.ELEMENT_NODE || 1;
 
-const isEmpty = (e) => e == null || e === '';
+const isEmpty = e => e == null || e === '';
 
-
-export function parent (el, selector) {
+export function parent(el, selector) {
 	if (isTextNode(el)) {
 		el = el.parentNode;
 
-		if(isEmpty(selector)) {
+		if (isEmpty(selector)) {
 			return el;
 		}
 	}
 
 	if (el) {
-		if(isEmpty(selector)) {
+		if (isEmpty(selector)) {
 			el = el.parentNode;
-		}
-		else {
+		} else {
 			if (typeof el.closest === 'function') {
 				return el.closest(selector);
 			}
 
-			while(el && !matches(el, selector)) {
+			while (el && !matches(el, selector)) {
 				el = el.parentNode;
 			}
 		}

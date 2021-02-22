@@ -1,29 +1,29 @@
-export function getDocument () {
+export function getDocument() {
 	return typeof document === 'undefined'
-		/* istanbul ignore next */
-		? {}
+		? /* istanbul ignore next */
+		  {}
 		: document.documentElement;
 }
 
-function getScreen () {
+function getScreen() {
 	/* istanbul ignore next */
 	return global.screen || {};
 }
 
-export function getViewportHeight () {
+export function getViewportHeight() {
 	return getDocument().clientHeight || global.innerHeight;
 }
 
-export function getViewportWidth () {
+export function getViewportWidth() {
 	return getDocument().clientWidth || global.innerWidth;
 }
 
-export function getScreenWidth () {
+export function getScreenWidth() {
 	let fallback = getViewportWidth();
 	return getScreen().width || fallback;
 }
 
-export function getScreenHeight () {
+export function getScreenHeight() {
 	let fallback = getViewportHeight();
 	return getScreen().height || fallback;
 }

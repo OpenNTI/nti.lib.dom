@@ -1,38 +1,36 @@
 import EventEmitter from 'events'; //builtin
 
-const prefix = (()=> {
+const prefix = (() => {
 	try {
 		const prefixes = ['webkit', 'moz', 'ms', 'o'];
 		if (document.hidden !== undefined) {
 			return '';
 		}
 		// Test all vendor prefixes
-		for(let i = 0; i < prefixes.length; i++) {
+		for (let i = 0; i < prefixes.length; i++) {
 			if (document[prefixes[i] + 'Hidden'] !== undefined) {
 				return prefixes[i];
 			}
 		}
+	} catch (e) {
+		/**/
 	}
-	catch(e) {/**/}
 	return null;
 })();
 
 const CHANGE_EVENT = 'visibilitychange';
 const eventName = prefix + 'visibilitychange';
-const propertyName = prefix === '' ? 'hidden' : (prefix + 'Hidden');
-
+const propertyName = prefix === '' ? 'hidden' : prefix + 'Hidden';
 
 export class VisibilityMonitor extends EventEmitter {
+	views = 0;
 
-	views = 0
-
-	constructor () {
+	constructor() {
 		super();
-		this.setMaxListeners(0);//don't test for memory leaks.
+		this.setMaxListeners(0); //don't test for memory leaks.
 		const doc = typeof document !== 'undefined' ? document : null;
 
 		if (prefix !== null && doc) {
-
 			const handleVisibilityChange = () => {
 				const hidden = doc[propertyName];
 
@@ -49,18 +47,17 @@ export class VisibilityMonitor extends EventEmitter {
 		}
 	}
 
+	getViews() {
+		return this.views;
+	}
 
-	getViews () { return this.views; }
-
-
-	addChangeListener (callback) {
+	addChangeListener(callback) {
 		this.addListener(CHANGE_EVENT, callback);
 		const unsubscribe = () => this.removeListener(CHANGE_EVENT, callback);
 		return unsubscribe;
 	}
 
-
-	removeChangeListener (callback) {
+	removeChangeListener(callback) {
 		this.removeListener(CHANGE_EVENT, callback);
 	}
 }

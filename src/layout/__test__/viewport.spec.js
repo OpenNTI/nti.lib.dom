@@ -4,21 +4,21 @@ import {
 	getViewportHeight,
 	getViewportWidth,
 	getScreenWidth,
-	getScreenHeight
+	getScreenHeight,
 } from '../viewport';
 
-const set = (o, k, value) => Object.defineProperty(o, k, {configurable: true, value});
+const set = (o, k, value) =>
+	Object.defineProperty(o, k, { configurable: true, value });
 
 describe('viewport measuring', () => {
-
 	beforeEach(() => {
 		global.innerHeight = 768;
 		global.innerWidth = 1024;
 	});
 
-	test ('getViewportHeight', () => {
+	test('getViewportHeight', () => {
 		const doc = getDocument();
-		const {document} = global;
+		const { document } = global;
 		global.document = void 0;
 
 		try {
@@ -35,9 +35,9 @@ describe('viewport measuring', () => {
 		}
 	});
 
-	test ('getViewportWidth', () => {
+	test('getViewportWidth', () => {
 		const doc = getDocument();
-		const {document} = global;
+		const { document } = global;
 		global.document = void 0;
 
 		try {
@@ -54,7 +54,7 @@ describe('viewport measuring', () => {
 		}
 	});
 
-	test ('getScreenWidth', () => {
+	test('getScreenWidth', () => {
 		expect(getScreenWidth()).toEqual(1024);
 
 		try {
@@ -65,7 +65,7 @@ describe('viewport measuring', () => {
 		}
 	});
 
-	test ('getScreenHeight', () => {
+	test('getScreenHeight', () => {
 		expect(getScreenHeight()).toEqual(768);
 
 		try {

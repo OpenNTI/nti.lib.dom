@@ -2,9 +2,7 @@
 import { hasClass } from '../has-class';
 
 describe('hasClass', () => {
-
-	test ('should identify existing classes', () => {
-
+	test('should identify existing classes', () => {
 		let el = document.createElement('div');
 
 		el.className = 'test';
@@ -13,8 +11,7 @@ describe('hasClass', () => {
 		expect(hasClass(el, 'notthere')).toBeFalsy();
 	});
 
-
-	test ('should not corrupt classes', () => {
+	test('should not corrupt classes', () => {
 		let test = 'a';
 		let classes = ['a', 'b', 'c', 'd'];
 
@@ -26,6 +23,6 @@ describe('hasClass', () => {
 
 		let actual = el.className.split(' ');
 
-		classes.forEach(e=> expect(actual).toContain(e));
+		classes.forEach(e => expect(actual).toContain(e));
 	});
 });

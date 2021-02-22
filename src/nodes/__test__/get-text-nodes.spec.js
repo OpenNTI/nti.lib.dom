@@ -2,10 +2,8 @@
 import { isTextNode } from '../is-text-node';
 import { getTextNodes } from '../get-text-nodes';
 
-describe ('getTextNodes', () => {
-
-	test ('should retrieve the text nodes from a dom structure', () => {
-
+describe('getTextNodes', () => {
+	test('should retrieve the text nodes from a dom structure', () => {
 		let d = document.createDocumentFragment();
 		let el = document.createElement('div');
 
@@ -17,7 +15,7 @@ describe ('getTextNodes', () => {
 
 		let textNodes = getTextNodes(d);
 
-		let actual = textNodes.map(n=> {
+		let actual = textNodes.map(n => {
 			expect(isTextNode(n)).toBeTruthy();
 			return n.nodeValue;
 		});

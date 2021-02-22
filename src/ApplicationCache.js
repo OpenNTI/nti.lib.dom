@@ -8,17 +8,16 @@ const cache = global.applicationCache;
 export default cache;
 
 const cacheStatusValues = [
-	'uncached',		//0
-	'idle',			//1
-	'checking',		//2
-	'downloading',	//3
-	'updateready',	//4
-	'obsolete'		//5
+	'uncached', //0
+	'idle', //1
+	'checking', //2
+	'downloading', //3
+	'updateready', //4
+	'obsolete', //5
 ];
 
-
-function logEvent (e) {
-	const online = (navigator.onLine) ? 'yes' : 'no';
+function logEvent(e) {
+	const online = navigator.onLine ? 'yes' : 'no';
 	const status = cacheStatusValues[cache.status];
 
 	let message = `online: ${online}, event: ${e.type}, status: ${status}`;
@@ -28,7 +27,6 @@ function logEvent (e) {
 
 	logger.debug(message);
 }
-
 
 if (cache) {
 	cache.addEventListener('cached', logEvent, false);
@@ -40,7 +38,8 @@ if (cache) {
 	cache.addEventListener('progress', logEvent, false);
 	cache.addEventListener('updateready', logEvent, false);
 
-	cache.addEventListener('updateready',
+	cache.addEventListener(
+		'updateready',
 		() => {
 			cache.swapCache();
 			logger.debug('swap cache has been called');
@@ -54,8 +53,11 @@ if (cache) {
 		}
 
 		try {
-			if(cache && cache.status) {
-				logger.debug('Updating AppCache... current status: %s', cacheStatusValues[cache.status]);
+			if (cache && cache.status) {
+				logger.debug(
+					'Updating AppCache... current status: %s',
+					cacheStatusValues[cache.status]
+				);
 				cache.update();
 			}
 		} catch (e) {

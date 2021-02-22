@@ -1,6 +1,6 @@
 import { hasClass } from './has-class';
 
-export function removeClass (el, className) {
+export function removeClass(el, className) {
 	if (el.classList) {
 		return el.classList.remove(className);
 	}

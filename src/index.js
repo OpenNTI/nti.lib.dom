@@ -7,7 +7,7 @@ export * from './style';
 export * from './values';
 
 /* istanbul ignore next */
-const isURL = x => (x && x.createObjectURL && x);
+const isURL = x => x && x.createObjectURL && x;
 export const URL = isURL(global.URL) || isURL(global.webkitURL) || null;
 
 export { default as ApplicationCache } from './ApplicationCache';

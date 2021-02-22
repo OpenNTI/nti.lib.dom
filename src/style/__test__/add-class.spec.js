@@ -2,9 +2,7 @@
 import { addClass } from '../add-class';
 
 describe('addClass', () => {
-
-	test ('should add a class to an element', () => {
-
+	test('should add a class to an element', () => {
 		let el = document.createElement('div');
 
 		expect(el.className).toBe('');
@@ -14,9 +12,7 @@ describe('addClass', () => {
 		expect(el.className).toBe('test');
 	});
 
-
-	test ('should not duplicate classes', () => {
-
+	test('should not duplicate classes', () => {
 		let el = document.createElement('div');
 
 		expect(el.className).toBe('');
@@ -27,8 +23,7 @@ describe('addClass', () => {
 		expect(el.className).toBe('test');
 	});
 
-
-	test ('should not corrupt classes', () => {
+	test('should not corrupt classes', () => {
 		let test = 'new-class';
 		let classes = ['a', 'b', 'c', 'd'];
 
@@ -42,6 +37,6 @@ describe('addClass', () => {
 
 		let actual = el.className.split(' ');
 
-		expected.forEach(e=> expect(actual).toContain(e));
+		expected.forEach(e => expect(actual).toContain(e));
 	});
 });

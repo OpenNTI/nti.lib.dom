@@ -1,6 +1,6 @@
 import { isElement } from '../nodes/is-element';
 
-export function getEffectiveZIndex (el) {
+export function getEffectiveZIndex(el) {
 	let zindex = 0;
 
 	while (el && isElement(el)) {

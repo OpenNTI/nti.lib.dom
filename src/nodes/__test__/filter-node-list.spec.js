@@ -2,7 +2,7 @@
 /* eslint-env jest */
 import { filterNodeList } from '../filter-node-list';
 
-test ('filterNodeList', () => {
+test('filterNodeList', () => {
 	expect(() => filterNodeList([], '..')).toThrow('Not Implemented');
 	expect(() => filterNodeList([], jest.fn())).not.toThrow('Not Implemented');
 	expect(() => filterNodeList([], new Date())).toThrow();

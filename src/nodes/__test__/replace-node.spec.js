@@ -4,13 +4,14 @@ import { replaceNode } from '../replace-node';
 const make = (n, p, c) => {
 	let e = document.createElement(n);
 	e.className = c;
-	if(p) { p.appendChild(e); }
+	if (p) {
+		p.appendChild(e);
+	}
 	return e;
 };
 
-describe ('replaceNode', () => {
-
-	test ('replace a node in the dom', () => {
+describe('replaceNode', () => {
+	test('replace a node in the dom', () => {
 		let replacement = make('span');
 		let li = make('li');
 		let el1 = make('a', li);
@@ -28,7 +29,6 @@ describe ('replaceNode', () => {
 
 		expect(() => replaceNode(li)).toThrow();
 		expect(replaceNode(el2, replacement)).toBe(el2);
-
 
 		expect(el2.parentNode).toBeFalsy();
 

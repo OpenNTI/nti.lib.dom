@@ -1,10 +1,8 @@
 /* eslint-env jest */
 import { isValueEmpty } from '../is-value-empty';
 
-describe ('isValueEmpty', () => {
-
-	test ('should identify empty value', () => {
-
+describe('isValueEmpty', () => {
+	test('should identify empty value', () => {
 		expect(isValueEmpty(undefined)).toBeTruthy();
 		expect(isValueEmpty(null)).toBeTruthy();
 		expect(isValueEmpty('')).toBeTruthy();

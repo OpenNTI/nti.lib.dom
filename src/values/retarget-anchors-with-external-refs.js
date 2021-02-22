@@ -6,8 +6,8 @@
  * in the same tab so if people get clever and insert links to things like
  * profile we do the right thing.
  */
-export function retargetAnchorsWithExternalRefs (markup, baseUrl) {
-	let string = (typeof markup === 'string'),
+export function retargetAnchorsWithExternalRefs(markup, baseUrl) {
+	let string = typeof markup === 'string',
 		tempDom;
 
 	if (!markup) {

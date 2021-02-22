@@ -1,4 +1,6 @@
-const getElementWithContent = (tag, x) => (tag = document.createElement(tag), tag.innerHTML = x, tag);
+const getElementWithContent = (tag, x) => (
+	(tag = document.createElement(tag)), (tag.innerHTML = x), tag
+);
 
 /**
  * Given a string return a fragment.
@@ -10,7 +12,7 @@ const getElementWithContent = (tag, x) => (tag = document.createElement(tag), ta
  * @param  {string} str the string to parse
  * @returns {Fragment}    the parsed fragment
  */
-export function getFragmentFromString (str) {
+export function getFragmentFromString(str) {
 	if (typeof document === 'undefined') {
 		throw new Error('Document is not defined');
 	}
@@ -21,7 +23,7 @@ export function getFragmentFromString (str) {
 		try {
 			return range.createContextualFragment(str);
 		} catch (e) {
-			if(!/NotSupportedError/i.test(e.message)) {
+			if (!/NotSupportedError/i.test(e.message)) {
 				throw e;
 			}
 		}
