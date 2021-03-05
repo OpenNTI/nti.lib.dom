@@ -3,7 +3,7 @@
  */
 
 const endEvents =
-	typeof window === 'undefined'
+	typeof window === 'undefined' || typeof document === 'undefined'
 		? []
 		: (map => {
 				const { style } = document.createElement('div');
