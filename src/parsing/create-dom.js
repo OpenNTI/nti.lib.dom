@@ -20,11 +20,7 @@ export function createDOM(o, parentNode, xmlns = o?.xmlns) {
 		return o;
 	}
 
-	if (
-		typeof o === 'string' &&
-		o.charAt(0) === '<' &&
-		o.charAt(o.length - 1) === '>'
-	) {
+	if (typeof o === 'string' && /<.*>/.test(o)) {
 		return parseDom(o, parentNode);
 	}
 
