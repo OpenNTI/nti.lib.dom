@@ -70,7 +70,7 @@ export function createDOM(o, parentNode, xmlns = o?.xmlns) {
 function parseDom(content, parentNode) {
 	const parser = parseDom.parser || (parseDom.parser = new DOMParser());
 
-	const { body } = parser.parseFromString(content, 'text/html');
+	const { body } = parser.parseFromString(content?.trim(), 'text/html');
 	let result;
 	if (body.children.length > 1) {
 		result = document.createDocumentFragment();
