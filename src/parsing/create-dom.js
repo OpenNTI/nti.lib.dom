@@ -20,6 +20,14 @@ export function createDOM(o, parentNode, xmlns = o?.xmlns) {
 		return o;
 	}
 
+	if (
+		typeof o === 'string' &&
+		o.charAt(0) === '<' &&
+		o.charAt(o.length - 1) === '>'
+	) {
+		return parseDom(o, parentNode);
+	}
+
 	if (Array.isArray(o)) {
 		// Allow Arrays of siblings to be inserted
 		el = doc.createDocumentFragment(); // in one shot using a DocumentFragment
@@ -61,4 +69,25 @@ export function createDOM(o, parentNode, xmlns = o?.xmlns) {
 	}
 
 	return el;
+}
+
+function parseDom(content, parentNode) {
+	const parser = parseDom.parser || (parseDom.parser = new DOMParser());
+
+	const { body } = parser.parseFromString(content, 'text/html');
+	let result;
+	if (body.children.length > 1) {
+		result = document.createDocumentFragment();
+		for (const el of body.children) {
+			result.appendChild(el);
+		}
+	} else {
+		result = body.firstChild;
+	}
+
+	if (parentNode) {
+		parentNode.appendChild(result);
+	}
+
+	return result;
 }
