@@ -1,5 +1,7 @@
 import { applyStyles } from '../style/apply-styles';
 
+import { getFragmentFromString } from './get-fragment-from-string';
+
 const isConfig = RegExp.prototype.test.bind(
 	/^(?:xmlns|tag|children|cn|html|style)$/i
 );
@@ -68,22 +70,11 @@ export function createDOM(o, parentNode, xmlns = o?.xmlns) {
 }
 
 function parseDom(content, parentNode) {
-	const parser = parseDom.parser || (parseDom.parser = new DOMParser());
-
-	const { body } = parser.parseFromString(content?.trim(), 'text/html');
-	let result;
-	if (body.children.length > 1) {
-		result = document.createDocumentFragment();
-		for (const el of body.children) {
-			result.appendChild(el);
-		}
-	} else {
-		result = body.firstChild;
-	}
+	const result = getFragmentFromString(content);
 
 	if (parentNode) {
 		parentNode.appendChild(result);
 	}
 
-	return result;
+	return result.children.length === 1 ? result.firstElementChild : result;
 }
