@@ -1,10 +1,9 @@
-/* global spyOn */
 /* eslint-env jest */
 import { scrollElementTo } from '../scroll-element-to';
 
 describe('scrollelementto', () => {
 	test('should call scrollTo on window', () => {
-		spyOn(window, 'scrollTo');
+		jest.spyOn(window, 'scrollTo').mockImplementation(() => {});
 		scrollElementTo(window, 100, 100);
 		expect(window.scrollTo).toHaveBeenCalled();
 	});
@@ -31,7 +30,7 @@ describe('scrollelementto', () => {
 	});
 
 	test('should not call window.scrollTo when passed a DOM element', () => {
-		spyOn(window, 'scrollTo');
+		jest.spyOn(window, 'scrollTo').mockImplementation(() => {});
 		const div = document.createElement('div');
 		scrollElementTo(div, 100, 100);
 		expect(window.scrollTo).not.toHaveBeenCalled();
