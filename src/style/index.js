@@ -1,5 +1,6 @@
 export * from './add-class';
 export * from './add-feature-check-classes';
+export * from './add-stylesheet.js';
 export * from './apply-styles';
 export * from './copy-custom-properties-into-iframe';
 export * from './get-all-custom-properties';

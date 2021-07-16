@@ -51,6 +51,7 @@ Array [
   "scrollElementTo",
   "addClass",
   "addFeatureCheckClasses",
+  "addStyleSheet",
   "applyStyles",
   "copyCustomPropertiesIntoIFrame",
   "getAllCustomProperties",
