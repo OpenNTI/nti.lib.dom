@@ -2,7 +2,7 @@ import { wait } from '@nti/lib-commons';
 
 const getHeadElement = d => d.head || d.getElementsByTagName('head')[0];
 
-export async function addStyleSheet(source, replace) {
+export async function addStyleSheet(source, id, replace) {
 	let url = source;
 	let doc = document;
 
@@ -17,12 +17,11 @@ export async function addStyleSheet(source, replace) {
 
 	const head = getHeadElement(doc);
 
-	let old, id;
+	let old, newId;
 	if (replace) {
-		old =
-			typeof replace === 'string' ? doc.getElementById(replace) : replace;
+		old = typeof id === 'string' ? doc.getElementById(id) : id;
 		if (old) {
-			id = old.id;
+			newId = old.id;
 		}
 	}
 
@@ -30,7 +29,9 @@ export async function addStyleSheet(source, replace) {
 	link.rel = 'stylesheet';
 	link.type = 'text/css';
 	link.href = url;
-	if (id) {
+	if (newId) {
+		link.id = newId;
+	} else {
 		link.id = id;
 	}
 
