@@ -1,7 +1,23 @@
 import { wait } from '@nti/lib-commons';
 
+/**
+ * @param {Document} d
+ * @returns {HTMLHeadElement}
+ */
 const getHeadElement = d => d.head || d.getElementsByTagName('head')[0];
 
+/**
+ * @typedef {object} SourceDescription
+ * @property {string} url
+ * @property {Document} document
+ */
+
+/**
+ *
+ * @param {string|SourceDescription} source
+ * @param {string=} replace
+ * @returns {Promise<HTMLLinkElement>}
+ */
 export async function addStyleSheet(source, replace) {
 	let url = source;
 	let doc = document;
@@ -47,8 +63,9 @@ export async function addStyleSheet(source, replace) {
 			throw new Error('not ready');
 		}
 	});
+	return link;
 	// } catch {
-	//	failed revert?
+	//	failed, revert?
 	//	if (old) {
 	//		head.insertBefore(old, link);
 	//		head.removeChild(link);
