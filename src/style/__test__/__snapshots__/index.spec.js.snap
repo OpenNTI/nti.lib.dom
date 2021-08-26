@@ -6,6 +6,7 @@ Array [
   "addFeatureCheckClasses",
   "addStyleSheet",
   "applyStyles",
+  "awaitStyleReady",
   "copyCustomPropertiesIntoIFrame",
   "getAllCustomProperties",
   "getAllCustomPropertyValuesAtElement",
