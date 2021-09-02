@@ -1,9 +1,7 @@
 /* eslint-env jest */
-import { getCookie, setCookie } from '../cookies';
+import { getCookie, setCookie, clearCookie } from '../cookies';
 
 function mockCookies(cookies = 'test') {
-	const original = document.cookie;
-
 	const get = jest.fn().mockImplementation(() => cookies);
 	const set = jest.fn();
 
@@ -13,7 +11,11 @@ function mockCookies(cookies = 'test') {
 		set,
 	});
 
-	return { get, set, unmock: () => (document.cookie = original) };
+	return {
+		get,
+		set,
+		unmock: () => delete document.cookie,
+	};
 }
 
 describe('Cookies', () => {
@@ -60,6 +62,22 @@ describe('Cookies', () => {
 			const cookies = mockCookies('foo=test');
 
 			expect(getCookie('foo')).toBe('test');
+
+			cookies.unmock();
+		});
+	});
+
+	describe('clearCookie', () => {
+		test('clears the named cookie', () => {
+			const cookies = mockCookies('foo=test');
+			const zeroDate = new Date(0);
+
+			clearCookie('foo');
+
+			expect(cookies.set).toHaveBeenCalledTimes(1);
+			expect(cookies.set).toHaveBeenLastCalledWith(
+				`foo=;expires=${zeroDate.toGMTString()};path=/`
+			);
 
 			cookies.unmock();
 		});

@@ -45,6 +45,10 @@ export function setCookie(name, value, options = {}) {
 	global.document.cookie = cookie;
 }
 
+export function clearCookie(name, options = {}) {
+	setCookie(name, '', { ...options, expires: new Date(0) });
+}
+
 /**
  * Poll for a cookie to be set on the document
  *
@@ -52,7 +56,7 @@ export function setCookie(name, value, options = {}) {
  * @param {object} options
  * @param {number} [options.interval=1000] how frequently to check for the cookie
  * @param {number} [options.timeout=30000] how long to wait before rejecting
- * @returns {Promise} fulfills with the cookie value or rejects if the poll timed out
+ * @returns {Promise<string> & {stop: () => void}} fulfills with the cookie value or rejects if the poll timed out
  */
 export function waitForCookie(name, options) {
 	const { interval = 1000, timeout = 30000 } = options;
