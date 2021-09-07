@@ -58,11 +58,11 @@ export function clearCookie(name, options = {}) {
  * @param {number} [options.timeout=30000] how long to wait before rejecting
  * @returns {Promise<string> & {stop: () => void}} fulfills with the cookie value or rejects if the poll timed out
  */
-export function waitForCookie(name, options) {
+export function waitForCookie(name, options = {}) {
 	const { interval = 1000, timeout = 30000 } = options;
 
 	let intervalId = null;
-	const stop = clearInterval(intervalId);
+	const stop = () => clearInterval(intervalId);
 
 	const poll = new Promise((fulfill, reject) => {
 		const maybeFinish = () => {
