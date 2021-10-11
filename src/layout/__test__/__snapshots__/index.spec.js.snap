@@ -7,9 +7,9 @@ Array [
   "isZeroRect",
   "safeBoundingBoxForRange",
   "getDocument",
+  "getScreenHeight",
+  "getScreenWidth",
   "getViewportHeight",
   "getViewportWidth",
-  "getScreenWidth",
-  "getScreenHeight",
 ]
 `;
