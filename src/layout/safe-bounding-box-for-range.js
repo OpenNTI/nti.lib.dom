@@ -7,6 +7,7 @@ import { isZeroRect } from './is-zero-rect';
  * Gets the bounding rect of the provided range.  If the rect is zero
  * but the range is not collapsed we will attempt to get the bounding box
  * based on the ranges contents.  We do this because IE sucks.
+ *
  * @param {Range} range range
  * @returns {Rect} Bounding Rect
  */
